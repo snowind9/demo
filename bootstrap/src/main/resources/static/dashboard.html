@@ -1,262 +1,360 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Bootstrap 101 Template</title>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Bootstrap 101 Template</title>
 
-    <!-- Bootstrap -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
-    <link href="assets/js/jquery-ui.min.css" rel="stylesheet">
-    <link href="dist/css/dashboard.css" rel="stylesheet">
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
+<!-- Bootstrap -->
+<link href="dist/css/bootstrap.css" rel="stylesheet">
+<link href="assets/js/jquery-ui.min.css" rel="stylesheet">
+<link href="dist/css/dashboard.css" rel="stylesheet">
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <style type="text/css">
-    
-    .panel-actions {
-	  margin-top: -20px;
-	  margin-bottom: 0;
-	  text-align: right;
-	}
-	.panel-actions a {
-	  color:#333;
-	}
-	.panel-fullscreen {
-	    display: block;
-	    z-index: 9999;
-	    position: fixed;
-	    width: 100%;
-	    height: 100%;
-	    top: 0;
-	    right: 0;
-	    left: 0;
-	    bottom: 0;
-	    overflow: auto;
-	}
-    
-    </style>
-  </head>
-  <body>
-  	<div class="container">
-	  	<div class="container-fluid"> 
-		    <div class="row" id="search">
-			    <div class="input-group">
-			      <input type="text" class="form-control" value="Calling... 031234567      応対者 Snow Xue     通話開始日時 2016/05/21 11:49:33     通話時間 00:00:00" disabled="disabled">
-			      <span class="input-group-btn">
-			        <button class="btn btn-default btn-danger"  type="button" data-toggle="modal" data-target="#myModal">
-			        <span class="glyphicon glyphicon-earphone" aria-hidden="true" ></span>　電話切</button>
-			      </span>
-			    </div><!-- /input-group -->
-			</div><!-- /.row -->
-		</div><!-- container-fluid -->
-		
-		<div class="container col-lg-12 " >
-<!-- 			<div class="container col-lg-3"> -->
-			
-<!-- 				<div class="col-lg-12 well"> -->
-<!-- 					<div class="blockquote row"> -->
-<!-- 						<label class="col-lg-7 ">600157</label> -->
-<!-- 						<span class="col-lg-5"><button type="button" class="col-lg-12 btn btn-xs btn-info">口座切替</button></span> -->
-<!-- 					</div> -->
-<!-- 					<div class="row small" ><span class="col-lg-12 small">やまだたろう</span></div> -->
-<!-- 					<div class="row" ><label class="col-lg-12">山田太郎</label></div> -->
-<!-- 					<div class="row small"> -->
-<!-- 						<span class="col-lg-4">暗証番号</span> -->
-<!-- 						<span class="col-lg-3">****</span> -->
-<!-- 						<span class="col-lg-5"><button type="button" class=" col-lg-12 btn btn-xs btn-info">WEBIII</button></span> -->
-<!-- 					</div> -->
-<!-- 				</div> -->
-		
-<!-- 				<div class="col-lg-12 well small"> -->
-<!-- 					<div class=" blockquote row"><span class="col-lg-7">評価額合計(投信)</span><span class="col-lg-5 text-right">123,456,789</span></div> -->
-<!-- 					<div class=" blockquote row"><span class="col-lg-7">評価額合計(株式)</span><span class="col-lg-5 text-right">123,456,789</span></div> -->
-<!-- 					<div class=" blockquote row"><span class="col-lg-7">お預かり金(本日)</span><span class="col-lg-5 text-right">123,456,789</span></div> -->
-<!-- 					<div class=" blockquote row"><span class="col-lg-5">MRF</span><span class="col-lg-7 text-right">123,456,789</span></div> -->
-<!-- 					<div class=" blockquote row"><label class="col-lg-5">合計 (資産)</label><label class="col-lg-7 text-right">1,234,567,891</label></div> -->
-<!-- 				</div> -->
-<!-- 			</div> -->
-			
+<style type="text/css">
+.panel-actions {
+	margin-top: -20px;
+	margin-bottom: 0;
+	text-align: right;
+}
+
+.panel-actions a {
+	color: #333;
+}
+
+.panel-fullscreen {
+	display: block;
+	z-index: 9999;
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	overflow: auto;
+}
+</style>
+</head>
+<body>
+	<div class="container">
+		<div class="container-fluid">
+			<div class="row" id="search">
+				<div class="input-group">
+					<input type="text" class="form-control"
+						value="Calling... 031234567      応対者 Snow Xue     通話開始日時 2016/05/21 11:49:33     通話時間 00:00:00"
+						disabled="disabled"> <span class="input-group-btn">
+						<button class="btn btn-default btn-danger" type="button"
+							data-toggle="modal" data-target="#myModal">
+							<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+							電話切
+						</button>
+					</span>
+				</div>
+				<!-- /input-group -->
+			</div>
+			<!-- /.row -->
+		</div>
+		<!-- container-fluid -->
+
+		<div class="container col-lg-12 ">
+			<!-- 			<div class="container col-lg-3"> -->
+
+			<!-- 				<div class="col-lg-12 well"> -->
+			<!-- 					<div class="blockquote row"> -->
+			<!-- 						<label class="col-lg-7 ">600157</label> -->
+			<!-- 						<span class="col-lg-5"><button type="button" class="col-lg-12 btn btn-xs btn-info">口座切替</button></span> -->
+			<!-- 					</div> -->
+			<!-- 					<div class="row small" ><span class="col-lg-12 small">やまだたろう</span></div> -->
+			<!-- 					<div class="row" ><label class="col-lg-12">山田太郎</label></div> -->
+			<!-- 					<div class="row small"> -->
+			<!-- 						<span class="col-lg-4">暗証番号</span> -->
+			<!-- 						<span class="col-lg-3">****</span> -->
+			<!-- 						<span class="col-lg-5"><button type="button" class=" col-lg-12 btn btn-xs btn-info">WEBIII</button></span> -->
+			<!-- 					</div> -->
+			<!-- 				</div> -->
+
+			<!-- 				<div class="col-lg-12 well small"> -->
+			<!-- 					<div class=" blockquote row"><span class="col-lg-7">評価額合計(投信)</span><span class="col-lg-5 text-right">123,456,789</span></div> -->
+			<!-- 					<div class=" blockquote row"><span class="col-lg-7">評価額合計(株式)</span><span class="col-lg-5 text-right">123,456,789</span></div> -->
+			<!-- 					<div class=" blockquote row"><span class="col-lg-7">お預かり金(本日)</span><span class="col-lg-5 text-right">123,456,789</span></div> -->
+			<!-- 					<div class=" blockquote row"><span class="col-lg-5">MRF</span><span class="col-lg-7 text-right">123,456,789</span></div> -->
+			<!-- 					<div class=" blockquote row"><label class="col-lg-5">合計 (資産)</label><label class="col-lg-7 text-right">1,234,567,891</label></div> -->
+			<!-- 				</div> -->
+			<!-- 			</div> -->
+
 			<div class="container col-lg-9">
-			<div class="h4">
-				<span class="glyphicon glyphicon-eur"></span>
-				<span class="glyphicon glyphicon-fire"></span>
-				<span class="glyphicon glyphicon-eye-open"></span>
-				<span class="glyphicon glyphicon-briefcase"></span>
-				<span class="glyphicon glyphicon-hourglass"></span>
-				<span class="glyphicon glyphicon-sunglasses"></span>
+				<div class="h4">
+					<span class="glyphicon glyphicon-eur"></span> <span
+						class="glyphicon glyphicon-fire"></span> <span
+						class="glyphicon glyphicon-eye-open"></span> <span
+						class="glyphicon glyphicon-briefcase"></span> <span
+						class="glyphicon glyphicon-hourglass"></span> <span
+						class="glyphicon glyphicon-sunglasses"></span>
+				</div>
 			</div>
-		</div>
-		
-		<div class=" col-lg-10 ">
-			<table class="table col-lg-9">
-				<tbody>
-					<tr>
-						<td class="col-lg-5" rowspan="9">
-							<div class="col-lg-11 well">
-								<div class="blockquote row">
-									<label class="col-lg-7 h5">600157</label>
-									<span class="col-lg-5"><button type="button" class="col-lg-12 btn btn-xs btn-info">口座切替</button></span>
+
+			<div class=" col-lg-10 ">
+				<table class="table col-lg-9">
+					<tbody>
+						<tr>
+							<td class="col-lg-5" rowspan="9">
+								<div class="col-lg-11 well">
+									<div class="blockquote row">
+										<label class="col-lg-7 h5">600157</label> <span
+											class="col-lg-5"><button type="button"
+												class="col-lg-12 btn btn-xs btn-info">口座切替</button></span>
+									</div>
+									<div class="row small">
+										<span class="col-lg-12 small">やまだたろう</span>
+									</div>
+									<div class="row">
+										<label class="col-lg-12">山田太郎</label>
+									</div>
+									<div class="row small">
+										<span class="col-lg-4">暗証番号</span> <span class="col-lg-3">****</span>
+										<span class="col-lg-5"><button type="button"
+												class=" col-lg-12 btn btn-xs btn-info">WEBIII</button></span>
+									</div>
 								</div>
-								<div class="row small" ><span class="col-lg-12 small">やまだたろう</span></div>
-								<div class="row" ><label class="col-lg-12">山田太郎</label></div>
-								<div class="row small">
-									<span class="col-lg-4">暗証番号</span>
-									<span class="col-lg-3">****</span>
-									<span class="col-lg-5"><button type="button" class=" col-lg-12 btn btn-xs btn-info">WEBIII</button></span>
+								<div class="col-lg-11 well small">
+									<div class=" blockquote row">
+										<span class="col-lg-7">評価額合計(投信)</span><span
+											class="col-lg-5 text-right">123,456,789</span>
+									</div>
+									<div class=" blockquote row">
+										<span class="col-lg-7">評価額合計(株式)</span><span
+											class="col-lg-5 text-right">123,456,789</span>
+									</div>
+									<div class=" blockquote row">
+										<span class="col-lg-7">お預かり金(本日)</span><span
+											class="col-lg-5 text-right">123,456,789</span>
+									</div>
+									<div class=" blockquote row">
+										<span class="col-lg-5">MRF</span><span
+											class="col-lg-7 text-right">123,456,789</span>
+									</div>
+									<div class=" blockquote row">
+										<label class="col-lg-5">合計 (資産)</label><label
+											class="col-lg-7 text-right">1,234,567,891</label>
+									</div>
+								</div>
+							</td>
+							<th class="col-lg-2 small">見込顧客番号</th>
+							<td class="col-lg-2 small">8001234567</td>
+							<th class="col-lg-2 small">&nbsp;</th>
+							<td class="col-lg-2 small">&nbsp;</td>
+
+						</tr>
+						<tr class="small">
+							<th class="col-lg-2">部店</th>
+							<td class="col-lg-2">リテールダイレクト</td>
+							<th class="col-lg-2">扱者</th>
+							<td class="col-lg-2">漢字 00001</td>
+						</tr>
+						<tr class="small">
+							<th>顧客区分</th>
+							<td>一般</td>
+							<th>性別</th>
+							<td>女 性</td>
+						</tr>
+						<tr class="small">
+							<th>NISA開設</th>
+							<td>未開設</td>
+							<th>登録日</th>
+							<td>2007/06/01</td>
+						</tr>
+						<tr class="small">
+							<th>生年月日</th>
+							<td>1961/12/12</td>
+							<th>年齢</th>
+							<td>81</td>
+						</tr>
+						<tr class="small">
+							<th>電話番号</th>
+							<td>0312341234</td>
+							<th>日中連絡先</th>
+							<td>0312341234</td>
+						</tr>
+						<tr class="small">
+							<th>勤務先/代表者</th>
+							<td>連絡先409316</td>
+							<th>勤務先電話番号</th>
+							<td>0312341234</td>
+						</tr>
+						<tr class="small">
+							<th>郵便番号</th>
+							<td>132-3456</td>
+							<th></th>
+							<td colspan="3"></td>
+						</tr>
+						<tr class="small">
+							<th>住所</th>
+							<td colspan="3">住所漢字1住所漢字2住所漢字3住所漢字4住所漢字5</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="col-lg-2">
+				<div class="sidebar-module">
+					<div class="panel-group" id="accordion" role="tablist"
+						aria-multiselectable="true">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title">
+									<a role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseOne"
+										aria-expanded="true" aria-controls="collapseOne"> 顧客別手数料 </a>
+								</h4>
+							</div>
+							<div id="collapseOne" class="panel-collapse collapse in"
+								role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									<table class="table">
+										<tr>
+											<td><span
+												class="glyphicon glyphicon-pencil text-primary"></span><a
+												href="#">Articles</a></td>
+										</tr>
+										<tr>
+											<td><span class="glyphicon glyphicon-flash text-success"></span><a
+												href="#">News</a></td>
+										</tr>
+										<tr>
+											<td><span class="glyphicon glyphicon-file text-info"></span><a
+												href="#">Newsletters</a></td>
+										</tr>
+										<tr>
+											<td><span
+												class="glyphicon glyphicon-comment text-success"></span><a
+												href="#">Comments</a> <span class="badge">42</span></td>
+										</tr>
+									</table>
 								</div>
 							</div>
-							<div class="col-lg-11 well small">
-								<div class=" blockquote row"><span class="col-lg-7">評価額合計(投信)</span><span class="col-lg-5 text-right">123,456,789</span></div>
-								<div class=" blockquote row"><span class="col-lg-7">評価額合計(株式)</span><span class="col-lg-5 text-right">123,456,789</span></div>
-								<div class=" blockquote row"><span class="col-lg-7">お預かり金(本日)</span><span class="col-lg-5 text-right">123,456,789</span></div>
-								<div class=" blockquote row"><span class="col-lg-5">MRF</span><span class="col-lg-7 text-right">123,456,789</span></div>
-								<div class=" blockquote row"><label class="col-lg-5">合計 (資産)</label><label class="col-lg-7 text-right">1,234,567,891</label></div>
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingTwo">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseTwo"
+										aria-expanded="false" aria-controls="collapseTwo"> 顧客明細 </a>
+								</h4>
 							</div>
-						</td>
-						<th class="col-lg-2 small">見込顧客番号</th><td class="col-lg-2 small">8001234567</td>
-						<th class="col-lg-2 small">&nbsp;</th><td class="col-lg-2 small">&nbsp;</td>
-						
-					</tr>
-					<tr class="small">
-						<th class="col-lg-2">部店</th><td class="col-lg-2">リテールダイレクト</td>
-						<th class="col-lg-2">扱者</th><td class="col-lg-2">漢字 00001</td>
-					</tr>
-					<tr class="small">
-						<th>顧客区分</th><td>一般</td><th>性別</th><td>女 性</td>
-					</tr>
-					<tr class="small">
-						<th>NISA開設</th><td>未開設</td><th>登録日</th><td>2007/06/01</td>
-					</tr>
-					<tr class="small">
-						<th>生年月日</th><td>1961/12/12</td><th>年齢</th><td>81</td>
-					</tr>
-					<tr class="small">
-						<th>電話番号</th><td>0312341234</td><th>日中連絡先</th><td>0312341234</td>
-					</tr>
-					<tr class="small">
-						<th>勤務先/代表者</th><td>連絡先409316</td><th>勤務先電話番号</th><td>0312341234</td>
-					</tr >
-					<tr class="small">
-						<th>郵便番号</th><td>132-3456</td><th></th><td colspan="3"></td>
-					</tr>
-					<tr class="small">
-						<th>住所</th><td colspan="3">住所漢字1住所漢字2住所漢字3住所漢字4住所漢字5</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-		<div class="col-lg-2">
-		  <div class="sidebar-module">
-           <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
-			  <div class="panel panel-default">
-			    <div class="panel-heading" role="tab" id="headingOne">
-			      <h4 class="panel-title">
-			        <a role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-			          顧客別手数料
-			        </a>
-			      </h4>
-			    </div>
-			    <div id="collapseOne" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="headingOne">
-			      <div class="panel-body">
-			      <table class="table">
-			          <tr>
-			              <td>
-			                  <span class="glyphicon glyphicon-pencil text-primary"></span><a href="#">Articles</a>
-			              </td>
-			          </tr>
-			          <tr>
-			              <td>
-			                  <span class="glyphicon glyphicon-flash text-success"></span><a href="#">News</a>
-			              </td>
-			          </tr>
-			          <tr>
-			              <td>
-			                  <span class="glyphicon glyphicon-file text-info"></span><a href="#">Newsletters</a>
-			              </td>
-			          </tr>
-			          <tr>
-			              <td>
-			                  <span class="glyphicon glyphicon-comment text-success"></span><a href="#">Comments</a>
-			                  <span class="badge">42</span>
-			              </td>
-			          </tr>
-			      </table>
-			      </div>
-			    </div>
-			  </div>
-			  <div class="panel panel-default">
-			    <div class="panel-heading" role="tab" id="headingTwo">
-			      <h4 class="panel-title">
-			        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-			          顧客明細
-			        </a>
-			      </h4>
-			    </div>
-<!-- 			    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo"> -->
-<!-- 			      <div class="panel-body"> -->
-<!-- 			      </div> -->
-<!-- 			    </div> -->
-			  </div>
-			  <div class="panel panel-default">
-			    <div class="panel-heading" role="tab" id="headingThree">
-			      <h4 class="panel-title">
-			        <a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-			          保有明細
-			        </a>
-			      </h4>
-			    </div>
-			    <div id="collapseThree" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingThree">
-			      <div class="panel-body">
-			      </div>
-			    </div>
-			  </div>
+							<!-- 			    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo"> -->
+							<!-- 			      <div class="panel-body"> -->
+							<!-- 			      </div> -->
+							<!-- 			    </div> -->
+						</div>
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingThree">
+								<h4 class="panel-title">
+									<a class="collapsed" role="button" data-toggle="collapse"
+										data-parent="#accordion" href="#collapseThree"
+										aria-expanded="false" aria-controls="collapseThree"> 保有明細
+									</a>
+								</h4>
+							</div>
+							<div id="collapseThree" class="panel-collapse collapse"
+								role="tabpanel" aria-labelledby="headingThree">
+								<div class="panel-body"></div>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
-          </div>
+			<div class="container col-lg-9">
+
+				<div class="container">
+					<div class="row">
+						<div class="col-lg-10">
+							<div class="panel panel-default">
+								<div class="panel-heading">
+									<h3 class="panel-title">Panel title</h3>
+									<ul class="list-inline panel-actions">
+										<li><a href="#" id="panel-fullscreen" role="button"
+											title="Toggle fullscreen"><i
+												class="glyphicon glyphicon-resize-full"></i></a></li>
+									</ul>
+								</div>
+								<div class="panel-body">
+									<table class="table">
+										<tr>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td>3</td>
+										</tr>
+										<tr>
+											<td>4</td>
+										</tr>
+										<tr>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td>3</td>
+										</tr>
+										<tr>
+											<td>4</td>
+										</tr>
+										<tr>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td>3</td>
+										</tr>
+										<tr>
+											<td>4</td>
+										</tr>
+										<tr>
+											<td>1</td>
+										</tr>
+										<tr>
+											<td>2</td>
+										</tr>
+										<tr>
+											<td>3</td>
+										</tr>
+										<tr>
+											<td>4</td>
+										</tr>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- 			<ul class="nav nav-tabs nav-pills"> -->
+				<!-- 			  <li role="presentation" class="active"><a href="#">顧客別手数料</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">顧客明細</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">保有明細</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">SBS</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">登録金融機関</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">コンタクト履歴</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">取引履歴</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">資料請求</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">NiSA</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">FATCA</a></li> -->
+				<!-- 			  <li role="presentation"><a href="#">AML</a></li> -->
+				<!-- 			</ul> -->
+			</div>
 		</div>
-		<div class="container col-lg-9">
-		
-		<div class="container">
-		    <div class="row">
-		        <div class="col-md-8">
-		            <h2>Fullscreen toggle</h2>
-		            <div class="panel panel-default">
-		                <div class="panel-heading">
-		                    <h3 class="panel-title">Panel title</h3>
-		                    <ul class="list-inline panel-actions">
-		                        <li><a href="#" id="panel-fullscreen" role="button" title="Toggle fullscreen"><i class="glyphicon glyphicon-resize-full"></i></a></li>
-		                    </ul>
-		                </div>
-		                <div class="panel-body">
-		                    <h3>Panel body</h3>
-		                    <p>Click the resize icon in the top right to make this fullscreen.</p>
-		                    <p>Click the icon again to return to the normal size.</p>
-		                </div>
-		            </div>
-		        </div>
-		    </div>
-		</div>
-		
-<!-- 			<ul class="nav nav-tabs nav-pills"> -->
-<!-- 			  <li role="presentation" class="active"><a href="#">顧客別手数料</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">顧客明細</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">保有明細</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">SBS</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">登録金融機関</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">コンタクト履歴</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">取引履歴</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">資料請求</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">NiSA</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">FATCA</a></li> -->
-<!-- 			  <li role="presentation"><a href="#">AML</a></li> -->
-<!-- 			</ul> -->
-		</div>
-	</div>
 	</div>
 
 	<!-- Modal -->
@@ -264,73 +362,76 @@
 		aria-labelledby="myModalLabel">
 		<div class="modal-dialog modal-lg" role="document">
 			<div class="modal-content">
-			 <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title">コンタクト記録</h4>
-		      </div>
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"
+						aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+					<h4 class="modal-title">コンタクト記録</h4>
+				</div>
 				<div class="modal-body col-lg-12">
-				<form class="form-horizontal">
-				<div class="form-group form-group-sm">
-					<div class="col-lg-12 input-group">
-						<div class="col-lg-8">
-							<div class="dropdown col-lg-5">
-								<button class="btn btn-default dropdown-toggle" type="button"
-									id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true"
-									aria-expanded="true">
-									通話内容選択 <span class="caret"></span>
-								</button>
-								<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-									<li><a href="#">Prospect</a></li>
-									<li><a href="#">NISA</a></li>
-									<li><a href="#">コンプレイン＆ボイス</a></li>
-									<li><a href="#">資料請求</a></li>
-									<li><a href="#">キャンペーン＆プロモーション</a></li>
-									<li><a href="#">投資信託取引</a></li>
-									<li><a href="#">株取引</a></li>
-									<li><a href="#">移管</a></li>
-									<li><a href="#">ＷＥＢ</a></li>
-									<li><a href="#">アウトバウンド</a></li>
-									<li><a href="#">その他</a></li>
-								</ul>
+					<form class="form-horizontal">
+						<div class="form-group form-group-sm">
+							<div class="col-lg-12 input-group">
+								<div class="col-lg-8">
+									<div class="dropdown col-lg-5">
+										<button class="btn btn-default dropdown-toggle" type="button"
+											id="dropdownMenu1" data-toggle="dropdown"
+											aria-haspopup="true" aria-expanded="true">
+											通話内容選択 <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+											<li><a href="#">Prospect</a></li>
+											<li><a href="#">NISA</a></li>
+											<li><a href="#">コンプレイン＆ボイス</a></li>
+											<li><a href="#">資料請求</a></li>
+											<li><a href="#">キャンペーン＆プロモーション</a></li>
+											<li><a href="#">投資信託取引</a></li>
+											<li><a href="#">株取引</a></li>
+											<li><a href="#">移管</a></li>
+											<li><a href="#">ＷＥＢ</a></li>
+											<li><a href="#">アウトバウンド</a></li>
+											<li><a href="#">その他</a></li>
+										</ul>
+									</div>
+									<div class="col-lg-5">通話内容</div>
+								</div>
+								<div class="col-lg-4">コンタクトタイプ選択</div>
 							</div>
-							<div class="col-lg-5">通話内容</div>
-						</div>
-						<div class="col-lg-4">コンタクトタイプ選択</div>
-					</div>
 
-					<div class="col-lg-12 input-group">
-						<div class="col-lg-8">
-							<select multiple class="col-lg-5" style="height: 150px">
-								<option value="100">VA相違(OB)</option>
-								<option value="97">名寄せ（OB）</option>
-								<option value="96">NIGOフォロー（OB）</option>
-								<option value="99">その他（OB)</option>
-								<option value="865">促進アウトバウンド（Activation）</option>
-								<option value="866">促進アウトバウンド（Dormant）</option>
-								<option value="867">促進アウトバウンド（フォロー）</option>
-								<option value="868">促進アウトバウンド（その他）</option>
-								<option value="95">コールバック（OB）</option>
-							</select> <select multiple class="col-lg-5" style="height: 150px"></select>
+							<div class="col-lg-12 input-group">
+								<div class="col-lg-8">
+									<select multiple class="col-lg-5" style="height: 150px">
+										<option value="100">VA相違(OB)</option>
+										<option value="97">名寄せ（OB）</option>
+										<option value="96">NIGOフォロー（OB）</option>
+										<option value="99">その他（OB)</option>
+										<option value="865">促進アウトバウンド（Activation）</option>
+										<option value="866">促進アウトバウンド（Dormant）</option>
+										<option value="867">促進アウトバウンド（フォロー）</option>
+										<option value="868">促進アウトバウンド（その他）</option>
+										<option value="95">コールバック（OB）</option>
+									</select> <select multiple class="col-lg-5" style="height: 150px"></select>
+								</div>
+								<div class="col-lg-4">
+									<select multiple class="col-lg-12" style="height: 150px">
+										<option value="3">着信呼</option>
+										<option value="20">本人通話（OB）</option>
+										<option value="21">コール音（OB）</option>
+										<option value="22">留守電（OB）</option>
+										<option value="23">家族伝言（OB）</option>
+										<option value="24">その他(番号相違/着信拒否等)</option>
+										<option value="9">インターネット着信</option>
+										<option value="10">インターネット送信</option>
+										<option value="4">発信呼</option>
+										<option value="8">マニュアル連絡</option>
+										<option value="17">資料送付なし</option>
+										<option value="1">受領郵便物</option>
+										<option value="2">発送郵便物</option>
+									</select>
+								</div>
+							</div>
 						</div>
-						<div class="col-lg-4">
-							<select multiple class="col-lg-12" style="height: 150px">
-								<option value="3">着信呼</option>
-								<option value="20">本人通話（OB）</option>
-								<option value="21">コール音（OB）</option>
-								<option value="22">留守電（OB）</option>
-								<option value="23">家族伝言（OB）</option>
-								<option value="24">その他(番号相違/着信拒否等)</option>
-								<option value="9">インターネット着信</option>
-								<option value="10">インターネット送信</option>
-								<option value="4">発信呼</option>
-								<option value="8">マニュアル連絡</option>
-								<option value="17">資料送付なし</option>
-								<option value="1">受領郵便物</option>
-								<option value="2">発送郵便物</option>
-							</select>
-						</div>
-					</div>
-					</div>
 					</form>
 				</div>
 				<div class="modal-footer">
@@ -344,10 +445,10 @@
 
 
 	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery-ui.min.js"></script>
-    <script src="js/dashboard.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="dist/js/bootstrap.min.js"></script>
-  </body>
+	<script src="assets/js/jquery.min.js"></script>
+	<script src="assets/js/jquery-ui.min.js"></script>
+	<script src="js/dashboard.js"></script>
+	<!-- Include all compiled plugins (below), or include individual files as needed -->
+	<script src="dist/js/bootstrap.min.js"></script>
+</body>
 </html>
