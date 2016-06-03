@@ -1,24 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-<title>Bootstrap 101 Template</title>
-
-<!-- Bootstrap -->
-<link href="dist/css/bootstrap.css" rel="stylesheet">
-<link href="assets/js/jquery-ui.min.css" rel="stylesheet">
-<link href="dist/css/dashboard.css" rel="stylesheet">
-<link rel="stylesheet" href="dataTables/css/jquery.dataTables.css" />
-
-<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-<!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
 <style type="text/css">
 .panel-actions {
 	margin-top: -20px;
@@ -75,34 +54,20 @@
 }
 
 </style>
-</head>
-<body>
 
-<div id="wrapper">
-    <div id="sidebar-wrapper">
-        <ul class="sidebar-nav h2 input-group">
-       		<li class="sidebar-brand"><span role="button"><span class="glyphicon glyphicon-bookmark text-info" data-toggle="tooltip" data-placement="left" title="MENU"></span></span></li>
-            <li class="sidebar-brand"><span role="button" data-toggle="modal" data-target="#myModal2"><i class="glyphicon glyphicon-envelope text-info" data-toggle="tooltip" data-placement="left" title="資料請求" ></i></span></li>
-        </ul>
-    </div>
-</div>
-
-	<div class="container panel-group">
-		<div class="container-fluid">
-			<div class="row" id="search">
-				<div class="input-group">
-					<input type="text" class="form-control" value="Calling... 031234567      応対者 Snow Xue     通話開始日時 2016/05/21 11:49:33     通話時間 00:00:00" 	disabled="disabled">
-					<span class="input-group-btn">
-						<button class="btn btn-default btn-danger" type="button" data-toggle="modal" data-target="#myModal">
-							<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
-							電話切
-						</button>
-					</span>
-				</div><!-- /input-group -->
-			</div><!-- /.row -->
-		</div><!-- container-fluid -->
-	</div><!-- container -->
+	<div id="wrapper" ng-controller="leftSiderCtrl">
 		
+	    <div id="sidebar-wrapper">
+	        <ul class="sidebar-nav h2 input-group">
+	            <li class="sidebar-brand" ng-click="open('lg')">
+	            	<span role="button" data-toggle="modal" data-target="#myModal2">
+	            		<i class="glyphicon glyphicon-envelope text-info" tooltip-placement="left" uib-tooltip="資料請求" ></i>
+            		</span>
+           		</li>
+	        </ul>
+	    </div>
+	</div>
+
 	<div class="container">
 		<div class="container-fluid">
 			<div class="col-lg-4">
@@ -159,18 +124,18 @@
 			<div class="col-lg-8">
 				<table class="col-lg-12 h2">
 					<tr>
-						<td><span class="glyphicon glyphicon-envelope text-danger" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-header text-success" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-eye-open text-info" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-briefcase" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-hourglass" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-sunglasses" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-sunglasses" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-sunglasses" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-sunglasses" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-lock" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-book" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
-						<td><span class="glyphicon glyphicon-heart" data-toggle="tooltip" data-placement="bottom" title="Tooltip on bottom"></span></td>
+						<td><span class="glyphicon glyphicon-envelope text-danger" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-header text-success" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-eye-open text-info"tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-briefcase" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-hourglass" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-lock" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-book" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+						<td><span class="glyphicon glyphicon-heart" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
 					</tr>
 				</table>
 			</div>
@@ -595,79 +560,4 @@
 	</div>
 	<!-- Modal end-->
 	
-	<!-- Modal -->
-	<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel2">
-		<div class="modal-dialog modal-lg" role="document">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-label="Close">
-						<span aria-hidden="true">&times;</span>
-					</button>
-					<h4 class="modal-title">資料請求</h4>
-				</div>
-				<div class="modal-body col-lg-12">
-				<form>
-				
-			    
-				  <div class="form-group col-sm-6">
-				    <label for="inputEmail3" class="col-sm-3 control-label">請求者</label>
-				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="inputEmail3" placeholder="請求者">
-				    </div>
-				    <label for="inputEmail4" class="col-sm-3 control-label">郵便番号</label>
-				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="123-4567">
-				    </div>
-				    <label for="inputEmail4" class="col-sm-3 control-label">登録住所</label>
-				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="登録住所1">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="登録住所2">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="登録住所3">
-				    </div>
-				  </div>
-				  
-				  <div class="form-group col-sm-6">
-				    <div class="col-sm-12">
-				      <input type="checkbox" aria-label="...">
-				      <span>登録住所以外へ送付 </span>
-				    </div>
-				    <label for="inputEmail4" class="col-sm-3 control-label">郵便番号</label>
-				    
-				    <div class="col-sm-9">
-				       <div class="input-group">
-					      <input type="text" class="form-control" id="exampleInputAmount" placeholder="123">
-					      <div class="input-group-addon ">-</div>
-					      <input type="text" class="form-control " id="exampleInputAmount" placeholder="4567">
-					    </div>
-				    </div>
-				    <label for="inputEmail4" class="col-sm-3 control-label">登録住所</label>
-				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="登録住所1">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="登録住所2">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="登録住所3">
-				    </div>
-				    <label for="inputEmail4" class="col-sm-3 control-label">送先名義</label>
-				    <div class="col-sm-9">
-				      <input type="text" class="form-control" id="inputEmail4" placeholder="送先名義">
-				    </div>
-				  </div>
-				</form>
-				</div>
-				<div class="modal-footer">
-					<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-					<button type="button" class="btn btn-primary">Save changes</button>
-				</div>
-			</div>
-		</div>
-	</div>
-	<!-- Modal end-->
-
-	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	<script src="assets/js/jquery.min.js"></script>
-	<script src="assets/js/jquery-ui.min.js"></script>
-	<script src="js/dashboard.js"></script>
-	<!-- Include all compiled plugins (below), or include individual files as needed -->
-	<script src="dist/js/bootstrap.min.js"></script>
-	<script src="dataTables/js/jquery.dataTables.js"></script>
-</body>
-</html>
+	
