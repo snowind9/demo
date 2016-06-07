@@ -1,51 +1,28 @@
 <div class="table-responsive">
-	<table id = "home_list" class="table table-hover table-striped">
+	<table st-table="rowCollection" class="table table-striped">
 		<thead>
 			<tr>
-				<th class="col-lg-1 ">顧客名</th>
-				<th class="col-lg-1">口座番号</th>
-				<th class="col-lg-1">見込客コード</th>
-				<th class="col-lg-1">郵便番号</th>
-				<th class="col-lg-3 col-md-2 col-sm-2">住所</th>
-				<th class="col-lg-1">電話番号</th>
-				<th class="col-lg-2">メール</th>
-				<th class="col-lg-1">部店</th>
+				<th st-sort="firstName" class="col-lg-1" role=button>顧客名</th>
+				<th st-sort="account" class="col-lg-1" role=button>口座番号</th>
+				<th st-sort="prospectNo" class="col-lg-1" role=button>見込コード</th>
+				<th st-sort="postcode" class="col-lg-1" role=button>郵便番号</th>
+				<th st-sort="address" class="col-lg-3 col-md-2 col-sm-2" role=button>住所</th>
+				<th st-sort="tel" class="col-lg-1" role=button>電話番号</th>
+				<th st-sort="email" class="col-lg-2" role=button>メール</th>
+				<th st-sort="branch" class="col-lg-1" role=button>部店</th>
 			</tr>
 		</thead>
 		<tbody>
-			<tr >
-				<td scope=row>山田 太郎</td>
-				<td>123456</td>
-				<td>8001234567</td>
-				<td>123-1234</td>
-				<td>住所住所住所住所住所住所住所住所住所住所</td>
-				<td>0312345678</td>
-				<td>XXXXXXXXXXXXX@fidelity.co.jp</td>
-				<td>001</td>
-			</tr>
-			<tr>
-				<td scope=row>山田 太郎</td>
-				<td>123456</td>
-				<td>8001234567</td>
-				<td>123-1234</td>
-				<td>住所住所住所住所住所住所住所住所所住所住所住所</td>
-				<td>0312345678</td>
-				<td>XXXXXXXXXXXXX@fidelity.co.jp</td>
-				<td>001</td>
-			</tr>
-			<tr>
-				<td scope=row>山田 太郎</td>
-				<td>123456</td>
-				<td>8001234567</td>
-				<td>123-1234</td>
-				<td>住所住所住所住所住所住所住所住所</td>
-				<td>0312345678</td>
-				<td>XXXXXXXXXXXXX@fidelity.co.jp</td>
-				<td>001</td>
-			</tr>
+		<tr st-select-row="row" ng-repeat="row in rowCollection" role=button ng-click="openDashboard(row)">
+			<td>{{row.firstName}} {{row.lastName}}</td>
+			<td>{{row.account}}</td>
+			<td>{{row.prospectNo}}</td>
+			<td>{{row.postcode}}</td>
+			<td>{{row.address}}</td>
+			<td>{{row.tel}}</td>
+			<td><a ng-href="mailto:{{row.email}}">{{row.email}}</a></td>
+			<td>{{row.branch}}</td>
+		</tr>
 		</tbody>
 	</table>
 </div>
-
-<script type="text/javascript">
-</script>
