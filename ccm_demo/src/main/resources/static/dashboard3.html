@@ -95,7 +95,7 @@
 	<div class='col-lg-4' ng-controller ="panelController" name="w001">
 		<div class=" panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
 			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<h3 class="panel-title small">w001</h3>
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -107,7 +107,7 @@
 						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ui-sref='.detail2'>SBS</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
 						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
 						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
 						    <li><a ui-sref='.detail2'>取引履歴</a></li>
@@ -127,7 +127,7 @@
 	<div class=' col-lg-4' ng-controller ="panelController" name="w002">
 		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
 			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<h3 class="panel-title small">w002</h3>
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -139,7 +139,7 @@
 						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ui-sref='.detail2'>SBS</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
 						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
 						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
 						    <li><a ui-sref='.detail2'>取引履歴</a></li>
@@ -159,7 +159,7 @@
 	<div class=' col-lg-4' ng-controller ="panelController" name="w003">
 		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
 			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<h3 class="panel-title small">w003</h3>
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -171,7 +171,7 @@
 						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ui-sref='.detail2'>SBS</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
 						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
 						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
 						    <li><a ui-sref='.detail2'>取引履歴</a></li>
@@ -193,7 +193,7 @@
 	<div class='col-lg-4' ng-controller ="panelController" name="w004">
 		<div class=" panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
 			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<h3 class="panel-title small">w004</h3>
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -205,7 +205,7 @@
 						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ui-sref='.detail2'>SBS</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
 						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
 						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
 						    <li><a ui-sref='.detail2'>取引履歴</a></li>
@@ -225,7 +225,7 @@
 	<div class=' col-lg-4' ng-controller ="panelController" name="w005">
 		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
 			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<h3 class="panel-title small">w005</h3>
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -237,7 +237,7 @@
 						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ui-sref='.detail2'>SBS</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
 						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
 						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
 						    <li><a ui-sref='.detail2'>取引履歴</a></li>
@@ -258,7 +258,7 @@
 	<div class=' col-lg-4' ng-controller ="panelController" name="w006">
 		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
 			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<h3 class="panel-title small">w006</h3>
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -270,7 +270,7 @@
 						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ui-sref='.detail2'>SBS</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
 						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
 						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
 						    <li><a ui-sref='.detail2'>取引履歴</a></li>

@@ -1,4 +1,4 @@
-var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table']);
+var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table', 'mc.resizer']);
 
 dashboard.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
@@ -58,8 +58,9 @@ function dashboardController($rootScope) {
 dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 	$scope.fullscreen = false;
-	$scope.name='顧客別手数料';
+	$scope.name='無';
 	$scope.detail1 = function () { 
+		$scope.name='顧客別手数料';
 		$scope.htmlname="detail.html";
 		$scope.rowCollection = [
 			                       {firstName: '5', lastName: '5', birthDate: 5, balance: 5, email: 5},
@@ -99,6 +100,7 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 	$scope.detail2 = function () { 
 		$scope.htmlname="detail2.html";
+		$scope.name='顧客明細';
 		$scope.rowCollection = [
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
@@ -117,10 +119,12 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	};
 	
 	$scope.detail3 = function () { 
+		$scope.name='保有明細';
 		$scope.htmlname="documentRequest.html";
 	};
 	
 	$scope.detail4 = function () { 
+		$scope.name='SBS';
 		$scope.htmlname="customerInfo.html";
 	};
 	if ($attrs.name == "w001") {
