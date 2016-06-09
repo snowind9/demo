@@ -53,7 +53,8 @@ function dashboardController($rootScope) {
 	$rootScope.phone = 'on';
 }
 
-dashboard.controller("panelController",function ($scope, $http) {
+dashboard.controller("panelController", function ($scope, $http, $attrs) {
+	
 	$scope.fullscreen = false;
 	$scope.name='顧客別手数料';
 	$scope.detail1 = function () { 
@@ -112,8 +113,27 @@ dashboard.controller("panelController",function ($scope, $http) {
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5}
 			                   ];
 	};
-
-	$scope.detail1();
+	
+	$scope.detail3 = function () { 
+		$scope.htmlname="documentRequest.html";
+	};
+	
+	$scope.detail4 = function () { 
+		$scope.htmlname="customerInfo.html";
+	};
+	if ($attrs.name == "w001") {
+		$scope.detail1();
+	}
+	if ($attrs.name == "w002") {
+		$scope.detail2();
+	}
+	if ($attrs.name == "w003") {
+		$scope.detail3();
+	}
+	if ($attrs.name == "w004") {
+		$scope.detail4();
+	}
+		
 	
 });
 
