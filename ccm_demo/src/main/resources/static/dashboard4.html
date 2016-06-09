@@ -1,9 +1,9 @@
-<div  ng-controller="customerInfoCtrl">
+<div class="row" ng-controller="customerInfoCtrl">
 	<div class='col-lg-12'>
-		<div class="h4 col-lg-4 col-md-4 col-sm-4" role="button">123456 山田太郎(やまだたろう)</div>
-		<table class="h4 col-lg-8 col-md-8 col-sm-8">
+		<div class="h4 col-lg-4 col-md-4" role="button" ng-click="isCollapsed = !isCollapsed">123456 山田太郎(やまだたろう)</div>
+		<table class="h4 col-lg-8 col-md-8">
 			<tr>
-				<td><span class="glyphicon glyphicon-user text-danger" tooltip-placement="bottom" uib-tooltip="basic info"></span></td>
+				<td><span role="button" class="glyphicon glyphicon-user text-danger" tooltip-placement="bottom" uib-tooltip="basic info"></span></td>
 				<td><span class="glyphicon glyphicon-header text-success" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
 				<td><span class="glyphicon glyphicon-eye-open text-info"tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
 				<td><span class="glyphicon glyphicon-briefcase" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
@@ -17,18 +17,19 @@
 				<td><span role="button" class="glyphicon glyphicon-heart" tooltip-placement="bottom" uib-tooltip="pink" ng-click="changeColor()"></span></td>
 			</tr>
 		</table>
+		<div class='row' >
+			<div class= 'col-lg-12 ' uib-collapse="isCollapsed">
+				<div ng-include="'customerInfo.html'"></div>
+			</div>
+		</div>
 	</div>
 </div>
 
-<div  style="height:310px">
-	<div class='col-lg-12 col-md-12 col-sm-12 subwin' ng-controller ="panelController" name="w001" >
+<div class='row' style="height:310px">
+	<div class='col-lg-6 col-md-6  subwin' ng-controller ="panelController" name="w001" >
 		<div class=" panel panel-default small " ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-click="active = 1">tab1</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-click="active = 2">tab2</a></li>
-				  <li role="presentation" ng-class="{3: 'active'}[active]"><a ng-click="active = 3">tab3</a></li>
-				</ul>
+			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -37,7 +38,7 @@
 						<div class="btn-group" uib-dropdown is-open="status.isopen">
 						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
 						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
-						    <li><a ng-click="detail1()">顧客別手数料</a></li>
+						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
 						    <li><a ng-click="detail2()">顧客明細</a></li>
 						    <li><a ng-click='detail3()'>保有明細</a></li>
 						    <li><a ng-click='detail4()'>SBS</a></li>
@@ -54,19 +55,47 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-sm-12"  ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
+			<div ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
+		</div>
+	</div>
+	<div class=' col-lg-6 col-md-6 subwin' ng-controller ="panelController" name="w002">
+		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
+			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
+				<h3 class="panel-title small">{{name}}</h3>
+				<ul class="list-inline panel-actions">
+					<li>
+						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
+					</li>
+					<li>
+						<div class="btn-group" uib-dropdown is-open="status.isopen">
+						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
+						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
+						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
+						    <li><a ng-click="detail2()">顧客明細</a></li>
+						    <li><a ng-click='detail3()'>保有明細</a></li>
+						    <li><a ng-click='detail4()'>SBS</a></li>
+						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
+						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
+						    <li><a ui-sref='.detail2'>取引履歴</a></li>
+						    <li><a ui-sref='.detail2'>NiSA</a></li>
+						    <li><a ui-sref='.detail2'>FATCA</a></li>
+						    <li><a ui-sref='.detail2'>AML</a></li>
+						    <li role="separator" class="divider"></li>
+						    <li><a href="#">Separated link</a></li>
+						</ul>
+						</div>
+					</li>
+				</ul>
+			</div>
+			<div ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
 		</div>
 	</div>
 </div>
-<div  style="height:310px">
-	<div class='col-lg-4  col-md-4 subwin' ng-controller ="panelController" name="w002">
+<div class="row" style="height:310px">
+	<div class='col-lg-6  col-md-6 subwin' ng-controller ="panelController" name="w003">
 		<div class=" panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-click="active = 1">tab1</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-click="active = 2">tab2</a></li>
-				  <li role="presentation" ng-class="{3: 'active'}[active]"><a ng-click="active = 3">tab3</a></li>
-				</ul>
+			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -92,17 +121,13 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-sm-12"  ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
+			<div ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
 		</div>
 	</div>
-	<div class=' col-lg-4 col-md-4 subwin' ng-controller ="panelController" name="w003">
+	<div class=' col-lg-6 col-md-6 subwin' ng-controller ="panelController" name="w004">
 		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:300px">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-click="active = 1">tab1</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-click="active = 2">tab2</a></li>
-				  <li role="presentation" ng-class="{3: 'active'}[active]"><a ng-click="active = 3">tab3</a></li>
-				</ul>
+			<div class="panel-heading" ng-class="{true: 'cgcolor', false: ''}[color]">
+				<h3 class="panel-title small">{{name}}</h3>
 				<ul class="list-inline panel-actions">
 					<li>
 						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
@@ -128,44 +153,7 @@
 					</li>
 				</ul>
 			</div>
-			<div class="col-sm-12" ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
-		</div>
-	</div>
-	
-	<div class=' col-lg-4 col-md-4 subwin' ng-controller ="panelController" name="w004">
-		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: 'cgcolor-default'}[fullscreen]" style="height:300px">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: ''}[color]">
-				<ul class="nav nav-tabs ">
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-click="active = 1">tab1</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-click="active = 2">tab2</a></li>
-				  <li role="presentation" ng-class="{3: 'active'}[active]"><a ng-click="active = 3">tab3</a></li>
-				</ul>
-				<ul class="list-inline panel-actions">
-					<li>
-						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
-					</li>
-					<li>
-						<div class="btn-group" uib-dropdown is-open="status.isopen">
-						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
-						    <li><a ng-click="detail1()" >顧客別手数料</a></li>
-						    <li><a ng-click="detail2()">顧客明細</a></li>
-						    <li><a ng-click='detail3()'>保有明細</a></li>
-						    <li><a ng-click='detail4()'>SBS</a></li>
-						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
-						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
-						    <li><a ui-sref='.detail2'>取引履歴</a></li>
-						    <li><a ui-sref='.detail2'>NiSA</a></li>
-						    <li><a ui-sref='.detail2'>FATCA</a></li>
-						    <li><a ui-sref='.detail2'>AML</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-12"  ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
+			<div ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
 		</div>
 	</div>
 </div>

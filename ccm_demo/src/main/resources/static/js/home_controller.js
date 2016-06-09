@@ -1,4 +1,4 @@
-var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table', 'mc.resizer']);
+var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table', 'angularResizable']);
 
 dashboard.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
@@ -59,6 +59,7 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 	$scope.fullscreen = false;
 	$scope.name='無';
+	$scope.active = 1;
 	$scope.detail1 = function () { 
 		$scope.name='顧客別手数料';
 		$scope.htmlname="detail.html";
@@ -94,7 +95,43 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
-			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5}
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
+			                       {firstName: '9', lastName: '9', birthDate: 9, balance: 9, email: 9}
 			                   ];
 	}
 	
@@ -128,7 +165,7 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 		$scope.htmlname="customerInfo.html";
 	};
 	if ($attrs.name == "w001") {
-		$scope.detail1();
+		$scope.detail4();
 	}
 	if ($attrs.name == "w002") {
 		$scope.detail2();
@@ -137,7 +174,7 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 		$scope.detail3();
 	}
 	if ($attrs.name == "w004") {
-		$scope.detail4();
+		$scope.detail1();
 	}
 		
 	
