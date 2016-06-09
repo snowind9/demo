@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html ng-app="home">
+<head>
+<meta charset="UTF-8">
+<title>Call Center</title>
+<script src="/lib/js/angular.min.js"></script>
+<script src="/lib/js/angular-animate.min.js"></script>
+<script src="/lib/js/angular-ui-router.js"></script>
+<script src="/lib/js/smart-table.min.js"></script>
+<script src="/lib/js/ui-bootstrap.min.js"></script>
+<script src="/lib/js/ui-bootstrap-tpls-1.3.3.min.js"></script>
+
+
+<script src="/js/home_controller.js"></script>
+
+<link href="/lib/css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="/lib/css/table-smart.css" />
+<link rel="stylesheet" href="/css/ccm.css" />
+</head>
+<body>
+	<div class="container" ng-controller="searchCtrl">
+	  	<div class="container-fluid ">
+		    <div class="row" id="search">
+			    <div class="input-group" ng-switch on='phone'>
+			      <span role="button" uib-popover-template="'myPopoverTemplate.html'" popover-trigger="outsideClick" popover-placement="bottom" class="input-group-addon" id="basic-addon1"><span class="glyphicon glyphicon glyphicon-cog"></span></span>
+			      <input type="text" class="form-control" placeholder="Search for..." value="{{barText}}" ng-disabled="disabled">
+			      
+			      <span class="input-group-btn " ng-switch-when="off">
+			        <a class="btn btn-primary" type="button"  ui-sref='search'>検索開始</a>
+			      </span>
+			      
+			      <span class="input-group-btn"  ng-switch-when="on">
+					<button class="btn btn-default btn-danger" type="button">
+						<span class="glyphicon glyphicon-earphone" aria-hidden="true"></span>
+						電話切
+					</button>
+				  </span>
+			    </div><!-- /input-group -->
+			</div><!-- /.row -->
+		</div>
+		<div class="container" ui-view></div>
+	</div>
+	
+	<script type="text/ng-template" id="myPopoverTemplate.html">
+        <span role="button" ng-click="two()" class="input-group-addon" ><span class="glyphicon glyphicon-pause"></span></span>
+		<span role="button" ng-click="four()" class="input-group-addon" ><span class="glyphicon glyphicon-th-large"></span></span>
+		<span role="button" ng-click="six()" class="input-group-addon" ><span class="glyphicon glyphicon-th"></span></span>
+    </script>
+</body>
+</html>

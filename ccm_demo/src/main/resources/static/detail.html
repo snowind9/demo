@@ -1,0 +1,25 @@
+<div class="panel-body">
+	現時点の登録（本日が、適用開始日と適用終了日の間にある登録）
+</div>
+<div>
+<table st-table="rowCollection"  class="table">
+<thead>
+<tr>
+	<th st-sort="firstName">注文チャネル</th>
+	<th st-sort="lastName">割引率</th>
+	<th st-sort="birthDate">適用理由</th>
+	<th st-sort="balance">適用開始日</th>
+	<th>適用終了日</th>
+</tr>
+</thead>
+<tbody>
+<tr st-select-row="row" st-select-mode="multiple" ng-repeat="row in rowCollection">
+	<td>{{row.firstName | uppercase}}</td>
+	<td>{{row.lastName}}</td>
+	<td>{{row.birthDate}}</td>
+	<td>{{row.balance}}</td>
+	<td>{{row.email}}</td>
+</tr>
+</tbody>
+</table>
+</div>
