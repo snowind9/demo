@@ -23,6 +23,7 @@ dashboard.config(function($stateProvider, $urlRouterProvider) {
 }).run(function($rootScope) {
 	$rootScope.phone = 'off';
 	$rootScope.activeWin='';
+	$rootScope.color = false;
 })
 
 // Publish our messages for the list template
@@ -51,6 +52,7 @@ function ListController($rootScope , $state, $scope, $filter) {
 function dashboardController($rootScope) {
     $rootScope.barText = 'calling 031234567 通話開始日時 2016/05/21 11:49:33     通話時間 00:00:00';
 	$rootScope.phone = 'on';
+	
 }
 
 dashboard.controller("panelController", function ($scope, $http, $attrs) {
@@ -137,8 +139,11 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 });
 
-dashboard.controller('customerInfoCtrl', function ($scope) {
+dashboard.controller('customerInfoCtrl', function ($scope , $rootScope) {
 	  $scope.isCollapsed = true;
+	  $scope.changeColor = function (){
+		  $rootScope.color = ! $rootScope.color;
+	  }
 });
 
 

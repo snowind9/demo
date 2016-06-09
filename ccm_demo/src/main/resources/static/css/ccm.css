@@ -60,3 +60,8 @@ body {
 	padding-left: 8px;
 	padding-right: 0px;
 }
+.cgcolor {
+    color: #7B1717 !important;
+    background-color: #ECBDE2 !important;
+    border-color: #C11 !important;
+}
