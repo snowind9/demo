@@ -58,10 +58,10 @@ function dashboardController($rootScope) {
 dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 	$scope.fullscreen = false;
-	$scope.name='無';
-	$scope.active = 1;
+	$scope.names=['無', '無' ,'無' ];
+	$scope.active = 0;
+	
 	$scope.detail1 = function () { 
-		$scope.name='顧客別手数料';
 		$scope.htmlname="detail.html";
 		$scope.rowCollection = [
 			                       {firstName: '5', lastName: '5', birthDate: 5, balance: 5, email: 5},
@@ -137,7 +137,6 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 	$scope.detail2 = function () { 
 		$scope.htmlname="detail2.html";
-		$scope.name='顧客明細';
 		$scope.rowCollection = [
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
 			                       {firstName: '1', lastName: '2', birthDate: 3, balance: 4, email: 5},
@@ -156,28 +155,54 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	};
 	
 	$scope.detail3 = function () { 
-		$scope.name='保有明細';
 		$scope.htmlname="documentRequest.html";
 	};
 	
 	$scope.detail4 = function () { 
-		$scope.name='SBS';
 		$scope.htmlname="customerInfo.html";
 	};
+	
+	$scope.blank = function () { 
+		$scope.htmlname="";
+	};
+	
+
+	
+	$scope.activityFuncs=[$scope.detail1,$scope.blank ,$scope.blank ];
+		
+	$scope.tabclick = function (act) { 
+		$scope.active = act;
+		var func = $scope.activityFuncs[act];
+		if (func){
+			func();
+		}
+		
+	};
+	
+	var menuListNames = [{name:'顧客別手数料', func:$scope.detail1},
+	                     {name:'顧客明細', func:$scope.detail2},
+	                     {name:'保有明細', func:$scope.detail3},
+	                     {name:'SBS', func:$scope.detail4}
+	                     ];
+	
+	$scope.changeMenu = function (index){
+		$scope.names[$scope.active]=menuListNames[index].name;
+		menuListNames[index].func();
+		$scope.activityFuncs[$scope.active] = menuListNames[index].func;
+	}
+	
 	if ($attrs.name == "w001") {
-		$scope.detail4();
+		$scope.changeMenu(0);
 	}
 	if ($attrs.name == "w002") {
-		$scope.detail2();
+		$scope.changeMenu(2);
 	}
 	if ($attrs.name == "w003") {
-		$scope.detail3();
+		$scope.changeMenu(3);
 	}
 	if ($attrs.name == "w004") {
-		$scope.detail1();
+		$scope.changeMenu(1);
 	}
-		
-	
 });
 
 dashboard.controller('customerInfoCtrl', function ($scope , $rootScope) {
