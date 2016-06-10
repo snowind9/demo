@@ -58,7 +58,7 @@ function dashboardController($rootScope) {
 dashboard.controller("panelController", function ($scope, $http, $attrs) {
 	
 	$scope.fullscreen = false;
-	$scope.names=['無', '無' ,'無' ];
+	$scope.names=['', '' ,'' ];
 	$scope.active = 0;
 	
 	$scope.detail1 = function () { 
