@@ -3,9 +3,9 @@
 		<div class="h4 col-lg-4 col-md-4 col-sm-4" role="button">123456 山田太郎(やまだたろう)</div>
 		<table class="h4 col-lg-8 col-md-8 col-sm-8">
 			<tr>
-				<td><span class="glyphicon glyphicon-user text-danger" tooltip-placement="bottom" uib-tooltip="basic info"></span></td>
-				<td><span class="glyphicon glyphicon-header text-success" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-eye-open text-info"tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
+				<td><span class="glyphicon glyphicon-ok-sign" tooltip-placement="bottom" uib-tooltip="特定源あり"></span></td>特定源なし 一般 glyphicon glyphicon-remove-sign glyphicon glyphicon-minus-sign
+				<td><span class="glyphicon glyphicon-warning-sign" tooltip-placement="bottom" uib-tooltip="ワーニング"></span></td>
+				<td><span class="glyphicon glyphicon-gift"tooltip-placement="bottom" uib-tooltip="株式口座あり"></span></td>
 				<td><span class="glyphicon glyphicon-briefcase" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
 				<td><span class="glyphicon glyphicon-hourglass" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
 				<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
@@ -167,3 +167,27 @@
 		</div>
 	</div>
 </div>
+
+
+
+																					
+			パターン1										※例外事項等は顧客情報に表記								
+	口座番号	glyphicon glyphicon-ok-sign	特定源あり		ワーニング		株式口座あり		"NISA口座 
+or 
+ジュニアNISA"		Y客		印鑑登録なし		・高齢者【80歳以上】	glyphicon glyphicon-bullhorn					
+	顧客名	glyphicon glyphicon-remove-sign	特定源なし												・高齢者【75歳～79歳】						
+	ヨミガナ	glyphicon glyphicon-minus-sign	一般												・成人	glyphicon glyphicon-education					
+	口座閉鎖　or Y客				glyphicon glyphicon-warning-sign		glyphicon glyphicon-gift		glyphicon glyphicon-ice-lolly		glyphicon glyphicon-thumbs-down		glyphicon glyphicon-text-background		・未成年	glyphicon glyphicon-piggy-bank					
+									glyphicon glyphicon-ice-lolly-tasted				#66CCCC								
+			パターン2																		
+			・特定源あり		ワーニング		株式口座あり		"NISA口座 
+or 
+ジュニアNISA"		注意事項		※高齢者は登録情報に表示。ポップアップメッセージはそのまま								
+			・特定源なし																		
+			・一般																	例外事項	印鑑登録なし
+											▼										口座閉鎖
+											印鑑登録なし		glyphicon glyphicon-text-background								相続
+			#99CC00		#CC0033		#3399CC		#FF9900		相続		glyphicon glyphicon-log-out								
+											初回ログインなし		glyphicon glyphicon-eye-close								
+																					
+											#990066										
