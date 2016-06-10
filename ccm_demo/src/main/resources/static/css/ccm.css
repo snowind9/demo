@@ -77,3 +77,34 @@ html {
   	border-color: #ddd;
 }
 
+.tip1 {
+	color: #99cc00 !important;
+}
+
+.tip2 {
+	color: #cc0033 !important;
+}
+
+.tip3 {
+	color: #3399cc !important;
+}
+
+.tip4 {
+	color: #ff9900 !important;
+}
+
+.tip5 {
+	color: #990066 !important;
+}
+
+.tip6 {
+	color: #66cccc !important;
+}
+
+.tip0 {
+	color: #cccccc!important;
+	opacity: 0.5;
+	
+}
+
+

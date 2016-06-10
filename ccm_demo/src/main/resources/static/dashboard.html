@@ -1,20 +1,18 @@
 <div  ng-controller="customerInfoCtrl">
 	<div class='col-lg-12'>
-		<div class="h4 col-lg-4 col-md-4 col-sm-4" role="button">123456 山田太郎(やまだたろう)</div>
+		<div class="h4 col-lg-4 col-md-4 col-sm-4"> <span ng-click="changeColor()">123456 山田太郎(やまだたろう)</span>  <span ng-click="reset()" ng-show="class8+class9+class10==3">口座閉鎖  Y客</span></div>
 		<table class="h4 col-lg-8 col-md-8 col-sm-8">
 			<tr>
-				<td><span class="glyphicon glyphicon-ok-sign" tooltip-placement="bottom" uib-tooltip="特定源あり"></span></td>特定源なし 一般 glyphicon glyphicon-remove-sign glyphicon glyphicon-minus-sign
-				<td><span class="glyphicon glyphicon-warning-sign" tooltip-placement="bottom" uib-tooltip="ワーニング"></span></td>
-				<td><span class="glyphicon glyphicon-gift"tooltip-placement="bottom" uib-tooltip="株式口座あり"></span></td>
-				<td><span class="glyphicon glyphicon-briefcase" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-hourglass" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-sunglasses" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-lock" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span class="glyphicon glyphicon-book" tooltip-placement="bottom" uib-tooltip="On the bottom"></span></td>
-				<td><span role="button" class="glyphicon glyphicon-heart" tooltip-placement="bottom" uib-tooltip="pink" ng-click="changeColor()"></span></td>
+				<td><span ng-click = "tipOpen1()" class="glyphicon tip1" ng-class="{0: 'glyphicon-ok-sign', 1: 'glyphicon-remove-sign', 2: 'glyphicon-minus-sign'}[class1]" tooltip-placement="bottom" uib-tooltip="{{tipNames1[class1]}}"></span></td>
+				<td><span ng-click = "tipOpen2()" class="glyphicon glyphicon-warning-sign " ng-class="{0: 'tip2', 1: 'tip0'}[class2]" tooltip-placement="bottom" uib-tooltip="{{tipNames2[class2]}}"></span></td>
+				<td><span ng-click = "tipOpen3()" class="glyphicon glyphicon-gift" ng-class="{0: 'tip3', 1: 'tip0'}[class3]" tooltip-placement="bottom" uib-tooltip="{{tipNames3[class3]}}"></span></td>
+				<td><span ng-click = "tipOpen4()" class="glyphicon tip4" ng-class="{0: 'glyphicon-ice-lolly', 1: 'glyphicon-ice-lolly-tasted'}[class4]" tooltip-placement="bottom" uib-tooltip="{{tipNames4[class4]}}"></span></td>
+				<td><span ng-click = "tipOpen5()" class="glyphicon glyphicon-thumbs-down" ng-class="{0: 'tip5', 1: 'tip0'}[class5]" tooltip-placement="bottom" uib-tooltip="{{tipNames5[class5]}}"></span></td>
+				<td><span ng-click = "tipOpen6()" class="glyphicon glyphicon-text-background" ng-show="class8+class9+class10==3" ng-class="{0: 'text-danger', 1: 'tip0'}[class6]" tooltip-placement="bottom" uib-tooltip="{{tipNames6[class6]}}"></span></td>
+				<td><span ng-click = "tipOpen8()" class="glyphicon text-danger" ng-class="{0: 'glyphicon-text-background', 1: ''}[class8]" tooltip-placement="bottom" uib-tooltip="{{tipNames8[class8]}}"></span></td>
+				<td><span ng-click = "tipOpen9()" class="glyphicon text-danger" ng-class="{0: 'glyphicon-log-out', 1: ''}[class9]" tooltip-placement="bottom" uib-tooltip="{{tipNames9[class9]}}"></span></td>
+				<td><span ng-click = "tipOpen10()" class="glyphicon text-danger" ng-class="{0: 'glyphicon-eye-close', 1: ''}[class10]" tooltip-placement="bottom" uib-tooltip="{{tipNames10[class10]}}"></span></td>
+				<td><span ng-click = "tipOpen7()" class="glyphicon" ng-class="{0: 'glyphicon-bullhorn text-danger', 1: 'glyphicon-bullhorn text-danger', 2: 'glyphicon-education text-info', 3 : 'glyphicon-piggy-bank text-info'}[class7]" tooltip-placement="bottom" uib-tooltip="{{tipNames7[class7]}}"></span></td>
 			</tr>
 		</table>
 	</div>
@@ -167,27 +165,3 @@
 		</div>
 	</div>
 </div>
-
-
-
-																					
-			パターン1										※例外事項等は顧客情報に表記								
-	口座番号	glyphicon glyphicon-ok-sign	特定源あり		ワーニング		株式口座あり		"NISA口座 
-or 
-ジュニアNISA"		Y客		印鑑登録なし		・高齢者【80歳以上】	glyphicon glyphicon-bullhorn					
-	顧客名	glyphicon glyphicon-remove-sign	特定源なし												・高齢者【75歳～79歳】						
-	ヨミガナ	glyphicon glyphicon-minus-sign	一般												・成人	glyphicon glyphicon-education					
-	口座閉鎖　or Y客				glyphicon glyphicon-warning-sign		glyphicon glyphicon-gift		glyphicon glyphicon-ice-lolly		glyphicon glyphicon-thumbs-down		glyphicon glyphicon-text-background		・未成年	glyphicon glyphicon-piggy-bank					
-									glyphicon glyphicon-ice-lolly-tasted				#66CCCC								
-			パターン2																		
-			・特定源あり		ワーニング		株式口座あり		"NISA口座 
-or 
-ジュニアNISA"		注意事項		※高齢者は登録情報に表示。ポップアップメッセージはそのまま								
-			・特定源なし																		
-			・一般																	例外事項	印鑑登録なし
-											▼										口座閉鎖
-											印鑑登録なし		glyphicon glyphicon-text-background								相続
-			#99CC00		#CC0033		#3399CC		#FF9900		相続		glyphicon glyphicon-log-out								
-											初回ログインなし		glyphicon glyphicon-eye-close								
-																					
-											#990066										

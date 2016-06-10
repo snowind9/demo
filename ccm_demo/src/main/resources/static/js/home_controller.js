@@ -206,10 +206,77 @@ dashboard.controller("panelController", function ($scope, $http, $attrs) {
 });
 
 dashboard.controller('customerInfoCtrl', function ($scope , $rootScope) {
-	  $scope.isCollapsed = true;
 	  $scope.changeColor = function (){
 		  $rootScope.color = ! $rootScope.color;
 	  }
+	  
+	  $scope.class1 = 0;
+	  $scope.tipNames1 = ['特定源あり', '特定源なし', '一般' ];
+	  
+	  $scope.class2 = 0;
+	  $scope.tipNames2 = ['ワーニングあり' , 'ワーニングなし'];
+	  
+	  $scope.class3 = 0;
+	  $scope.tipNames3 = ['株式口座あり' , '株式口座なし'];
+	  
+	  $scope.class4 = 0;
+	  $scope.tipNames4 = ['NISA口座' , 'ジュニアNISA'];
+	  
+	  $scope.class5 = 0;
+	  $scope.tipNames5 = ['Y客' , ''];
+	  
+	  $scope.class6 = 0;
+	  $scope.tipNames6 = ['印鑑登録なし' , '印鑑登録'];
+	  
+	  $scope.class7 = 0;
+	  $scope.tipNames7 = ['高齢者【80歳以上】' , '高齢者【75歳～79歳】', '成人', '未成年'];
+	  
+	  $scope.class8 = 0;
+	  $scope.tipNames8 = ['印鑑登録なし',''];
+	  
+	  $scope.class9 = 0;
+	  $scope.tipNames9 = ['口座閉鎖',''];
+	  
+	  $scope.class10 = 0;
+	  $scope.tipNames10 = ['初回ログインなし',''];
+	  
+	  $scope.tipOpen1 = function() {
+		  $scope.class1 = ($scope.class1 + 1)%3;
+	  }
+	  
+	  $scope.tipOpen2 = function() {
+		  $scope.class2 = ($scope.class2 + 1)%2;
+	  }
+	  $scope.tipOpen3 = function() {
+		  $scope.class3 = ($scope.class3 + 1)%2;
+	  }
+	  $scope.tipOpen4 = function() {
+		  $scope.class4 = ($scope.class4 + 1)%2;
+	  }
+	  $scope.tipOpen5 = function() {
+		  $scope.class5 = ($scope.class5 + 1)%2;
+	  }
+	  $scope.tipOpen6 = function() {
+		  $scope.class6 = ($scope.class6 + 1)%2;
+	  }
+	  $scope.tipOpen7 = function() {
+		  $scope.class7 = ($scope.class7 + 1)%4;
+	  }
+	  $scope.tipOpen8 = function() {
+		  $scope.class8 = ($scope.class8 + 1)%2;
+	  }
+	  $scope.tipOpen9 = function() {
+		  $scope.class9 = ($scope.class9 + 1)%2;
+	  }
+	  $scope.tipOpen10 = function() {
+		  $scope.class10 = ($scope.class10 + 1)%2;
+	  }
+	  $scope.reset = function() {
+		  $scope.class10 =0;
+		  $scope.class9 =0;
+		  $scope.class8 =0;
+	  }
+	  
 });
 
 
