@@ -1,4 +1,4 @@
-var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table', 'angularResizable']);
+var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table']);
 
 dashboard.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
