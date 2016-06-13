@@ -1,4 +1,5 @@
-var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table']);
+var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table','snow_resizer']);
+
 
 dashboard.config(function($stateProvider, $urlRouterProvider) {
 	$urlRouterProvider.otherwise('/');
@@ -55,7 +56,7 @@ function dashboardController($rootScope) {
 	
 }
 
-dashboard.controller("panelController", function ($scope, $http, $attrs) {
+dashboard.controller("panelController", function ($element, $scope, $http, $attrs) {
 	
 	$scope.fullscreen = false;
 	$scope.names=['', '' ,'' ];
