@@ -46,6 +46,10 @@ angular.module('snow_resizer', [])
 	         
 	         parentWidht = $window.innerWidth; //? parent width = window.width,
 	          
+	         console.log(height)
+	         console.log(oldParentHeight)
+	         console.log(newParentHeight)
+	         
 	         newParentHeight = oldParentHeight/newParentHeight * height;
 	         
 	         parentEl.css({
