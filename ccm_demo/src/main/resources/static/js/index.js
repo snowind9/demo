@@ -15,16 +15,14 @@ angular.module('snow_resizer', [])
 			
 			var startOffset = 0;
 			
-			var oldWindowHeight = $window.innerHeight;
-			
 			var oldParentHeight = parentEl.prop("offsetHeight")
 			var origianlTopHeight = topEl.prop("offsetHeight");
+			
 			
 	        parentEl.css({
 					height: $window.innerHeight - topDIVHeight + 'px'
 			 });
-	        var oldParentHeight = parentEl.prop("offsetHeight");
-	        
+	        var newParentHeight = $window.innerHeight;
 		} else if ($attrs.resizer == 'v') {
 			var allWidth;
 			
@@ -47,9 +45,11 @@ angular.module('snow_resizer', [])
 	         var height = $window.innerHeight;
 	         
 	         parentWidht = $window.innerWidth; //? parent width = window.width,
+	          
+	         newParentHeight = oldParentHeight/newParentHeight * height;
 	         
 	         parentEl.css({
-				height:  oldParentHeight/oldWindowHeight * height + 'px'
+				height: newParentHeight + 'px'
 			 });
         });
 		
