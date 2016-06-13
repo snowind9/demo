@@ -21,6 +21,9 @@ angular.module('snow_resizer', [])
 			var origianlTopHeight = topEl.prop("offsetHeight");
 			
 			var newParentHeight = oldParentHeight;
+	        parentEl.css({
+					height: $window.innerHeight - topDIVHeight + 'px'
+			 });
 		} else if ($attrs.resizer == 'v') {
 			var allWidth;
 			
