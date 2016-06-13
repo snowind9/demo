@@ -2,57 +2,113 @@ angular.module('snow_resizer', [])
 	.directive('resizer', function($document, $window) {
 
 	return function($scope, $element, $attrs) {
-		var parentEl =  angular.element($document[0].getElementById("parent"));
-		var topEl =  angular.element($document[0].getElementById("top"));
-		var bottomEl =  angular.element($document[0].getElementById("bottom"));
-		
-		var selfOffsetTop = $element.prop("offsetTop");
-		var topDIVHeight = selfOffsetTop - topEl.prop("offsetHeight");
-		
-//		console.log(selfOffsetTop);
-//		console.log(topEl.prop("offsetHeight"));
-//		console.log(topDIVHeight);//==40?
+		console.log($attrs.resizer);
+		var parentEl =  angular.element($document[0].getElementById($attrs.parent));
+		var topEl =  angular.element($document[0].getElementById($attrs.partone));
+		var bottomEl =  angular.element($document[0].getElementById($attrs.parttwo));
 		
 		var startflg = false;
-		var startOffset = 0;
-		
-		var oldWindowHeight = $window.innerHeight;
-		
-		var oldParentHeight = parentEl.prop("offsetHeight")
-		var origianlTopHeight = topEl.prop("offsetHeight");
-		
-		var newParentHeight = oldParentHeight;
-//		console.log(newParentHeight);
+		// init
+		if ($attrs.resizer == 'h') {
+			var selfOffsetTop = $element.prop("offsetTop");
+			var topDIVHeight = selfOffsetTop - topEl.prop("offsetHeight");
+			
+			var startOffset = 0;
+			
+			var oldWindowHeight = $window.innerHeight;
+			
+			var oldParentHeight = parentEl.prop("offsetHeight")
+			var origianlTopHeight = topEl.prop("offsetHeight");
+			
+			var newParentHeight = oldParentHeight;
+		} else if ($attrs.resizer == 'v') {
+			var allWidth;
+			
+			var parentWidht = parentEl.prop("offsetWidth");
+			console.log(parentWidht);
+			console.log( $element.prop("offsetWidth"));
+			var initWidth = (parentWidht - $element.prop("offsetWidth") * 2) / 3;
+			var initRate = initWidth / parentWidht * 100;
+			topEl.css({
+				width: initRate + '%'
+			});
+			bottomEl.css({
+				width: initRate + '%'
+			});
+			console.log(initRate);
+			var totalRate ;
+		}
+
 		angular.element($window).bind('resize', function(){
 	         var height = $window.innerHeight;
-	         console.log(oldParentHeight);
-	         console.log(height);
 	         
+	         parentWidht = $window.innerWidth; //? parent width = window.width,
+	          
 	         newParentHeight = oldParentHeight/oldWindowHeight * height;
 	         
 	         parentEl.css({
 				height: newParentHeight + 'px'
 			 });
-	         
-//	         topEl.css({
-//				height: newHeight + 'px'
-//			 });
-//	         var siderHeight = $element.prop("offsetHeight")
-//	         bottomEl.css({
-//				height: oldHeight - siderHeight - newHeight + 'px'
-//			 });
         });
 		
 		
 		$element.on('mousedown', function(event) {
 			event.preventDefault();
-			startOffset = 0;
-			startflg = false;
+			
+			if ($attrs.resizer == 'h') {
+				startOffset = 0;
+				startflg = false;
+			} else if ($attrs.resizer == 'v') {
+			    allWidth = topEl.prop("offsetWidth") + bottomEl.prop("offsetWidth");
+			    totalRate = allWidth / parentWidht * 100;
+			    console.log(totalRate);
+			    
+			}
 			$document.on('mousemove', mousemove);
 			$document.on('mouseup', mouseup);
 		});
 
 		function mousemove(event) {
+			if ($attrs.resizer == 'h') {
+				horizontalMove(event)
+			}
+			if ($attrs.resizer == 'v') {
+				verticalMove(event)
+			}
+		}
+		
+		function verticalMove(event) {
+			var halfH = Math.floor($element.prop("offsetWidth") / 2);
+			var min = $element.prop("offsetLeft");
+			var max = $element.prop("offsetLeft") + $element.prop("offsetWidth");
+			var mid = $element.prop("offsetLeft") + halfH;
+			
+			if (startflg || event.pageX <= min || event.pageX >= max || event.pageX == mid) {
+				if (event.pageX <= min) startOffset = 0;
+				if (event.pageX == mid) startOffset = halfH;
+				if (event.pageX >= max) startOffset = $element.prop("offsetWidth");
+				startflg = true;
+			}
+			
+			if (startflg) {
+				var x = event.pageX;
+				var rate =  (x - startOffset - topEl.prop("offsetLeft")) / parentWidht * 100;
+				console.log("totalRate:" + totalRate);
+				console.log("rate:" + rate);
+				
+				topEl.css({
+					width: rate + '%'
+				});
+
+				rate2 = (totalRate * 100000 - rate * 100000) /100000;
+				bottomEl.css({
+					width: rate2 + '%'
+				});
+				console.log(totalRate - rate);
+			}
+		}
+		
+		function horizontalMove(event) {
 			var halfH = Math.floor($element.prop("offsetHeight") / 2);
 			var min = $element.prop("offsetTop");
 			var max = $element.prop("offsetTop") + $element.prop("offsetHeight");
@@ -64,29 +120,21 @@ angular.module('snow_resizer', [])
 				if (event.pageY >= max) startOffset = $element.prop("offsetHeight");
 				startflg = true;
 			}
-//			console.log(event.pageY);
-//			console.log(startflg);
 			var minY = Number(topDIVHeight) + Number(topEl.css("min-height").replace("px",""));
 			var maxY = Number(topDIVHeight) + Number(topEl.css("max-height").replace("px",""));
-//			console.log(maxY);
 			if (minY < event.pageY ) {
-				console.log("change");
 				if (startflg) {
-					resize(startOffset);
+					horizontalResize(startOffset);
 				}
 			}
 		}
 		
-		function resize(startOffset){
+		function horizontalResize(startOffset) {
 			var oldHeight = topEl.prop("offsetHeight");
 			var y = event.pageY;
 			
 			var rate = (y - startOffset - topDIVHeight) / newParentHeight;
 //			
-//			console.info(y - startOffset - topDIVHeight);
-//			console.info(newParentHeight);
-//			console.info(rate);
-			
 			topEl.css({
 				height: rate * 100 + '%'
 			});
@@ -95,7 +143,6 @@ angular.module('snow_resizer', [])
 			var newHeight = topEl.prop("offsetHeight");
 			var bottomHeight = bottomEl.prop("offsetHeight");
 			var offset = newHeight - oldHeight
-			if (bottomHeight - offset > 10 ) // assume min height is 10
 			bottomEl.css({
 				height: (1-rate) * 100 + '%'
 			});

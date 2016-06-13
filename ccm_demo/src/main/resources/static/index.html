@@ -19,11 +19,18 @@
 <link rel="stylesheet" href="/css/ccm2.css" />
 </head>
 <body>
-<div style="height: 40px"></div>
-<div id ="parent" style="height:500px">
-	<div id = "top" class="cgcolor" style="height: 50%; min-height: 30px"></div>
-	<div id="resizer" resizer class="resizer"><span></span><div id="width-readout" class="width-readout">912px</div></div>
-	<div id = "bottom" class="cgcolor-default" style="height: 50%"></div>
+<div style="height:40px"></div>
+<div id ="parent" style="height:700px">
+	<div id = "top" class="top-boxes" style="height: 50%; min-height: 30px">
+	</div>
+	<div resizer="h" parent="parent" partone="top" parttwo="bottom" class="resizer"><span></span><div id="width-readout" class="width-readout">912px</div></div>
+	<div id = "bottom" class="top-boxes" style="height: 50%">
+		<div id = "bottom-left" style="width: 31.5772%;" class="box">2</div>
+		<div resizer="v" parent="bottom" partone="bottom-left" parttwo="bottom-mid" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
+		<div id = "bottom-mid" style="width: 31.5772%;" class="box">3</div>
+		<div resizer="v" parent="bottom" partone="bottom-mid" parttwo="bottom-right" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
+		<div id = "bottom-right" style="width: 31.5772%;" class="box">4</div>
+	</div>
 </div>
 </body>
 </html>
