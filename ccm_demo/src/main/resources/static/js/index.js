@@ -2,7 +2,7 @@ angular.module('snow_resizer', [])
 	.directive('resizer', function($document, $window) {
 
 	return function($scope, $element, $attrs) {
-		console.log($attrs.resizer);
+//		console.log($attrs.resizer);
 		var parentEl =  angular.element($document[0].getElementById($attrs.parent));
 		var topEl =  angular.element($document[0].getElementById($attrs.partone));
 		var bottomEl =  angular.element($document[0].getElementById($attrs.parttwo));
@@ -37,7 +37,7 @@ angular.module('snow_resizer', [])
 			bottomEl.css({
 				width: initRate + '%'
 			});
-			console.log(initRate);
+//			console.log(initRate);
 			var totalRate ;
 		}
 
@@ -67,7 +67,7 @@ angular.module('snow_resizer', [])
 			} else if ($attrs.resizer == 'v') {
 			    allWidth = topEl.prop("offsetWidth") + bottomEl.prop("offsetWidth");
 			    totalRate = allWidth / parentWidht * 100;
-			    console.log(totalRate);
+//			    console.log(totalRate);
 			    
 			}
 			$document.on('mousemove', mousemove);
@@ -99,8 +99,8 @@ angular.module('snow_resizer', [])
 			if (startflg) {
 				var x = event.pageX;
 				var rate =  (x - startOffset - topEl.prop("offsetLeft")) / parentWidht * 100;
-				console.log("totalRate:" + totalRate);
-				console.log("rate:" + rate);
+//				console.log("totalRate:" + totalRate);
+//				console.log("rate:" + rate);
 				
 				topEl.css({
 					width: rate + '%'
@@ -110,7 +110,7 @@ angular.module('snow_resizer', [])
 				bottomEl.css({
 					width: rate2 + '%'
 				});
-				console.log(totalRate - rate);
+//				console.log(totalRate - rate);
 			}
 		}
 		
