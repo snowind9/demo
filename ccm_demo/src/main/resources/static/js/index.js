@@ -20,16 +20,17 @@ angular.module('snow_resizer', [])
 			var oldParentHeight = parentEl.prop("offsetHeight")
 			var origianlTopHeight = topEl.prop("offsetHeight");
 			
-			var newParentHeight = oldParentHeight;
 	        parentEl.css({
 					height: $window.innerHeight - topDIVHeight + 'px'
 			 });
+	        var oldParentHeight = parentEl.prop("offsetHeight");
+	        
 		} else if ($attrs.resizer == 'v') {
 			var allWidth;
 			
 			var parentWidht = parentEl.prop("offsetWidth");
-			console.log(parentWidht);
-			console.log( $element.prop("offsetWidth"));
+//			console.log(parentWidht);
+//			console.log( $element.prop("offsetWidth"));
 			var initWidth = (parentWidht - $element.prop("offsetWidth") * 2) / 3;
 			var initRate = initWidth / parentWidht * 100;
 			topEl.css({
@@ -46,11 +47,9 @@ angular.module('snow_resizer', [])
 	         var height = $window.innerHeight;
 	         
 	         parentWidht = $window.innerWidth; //? parent width = window.width,
-	          
-	         newParentHeight = oldParentHeight/oldWindowHeight * height;
 	         
 	         parentEl.css({
-				height: newParentHeight + 'px'
+				height:  oldParentHeight/oldWindowHeight * height + 'px'
 			 });
         });
 		
