@@ -58,10 +58,8 @@ function dashboardController($rootScope) {
 
 dashboard.controller("panelController", function ($element, $scope, $http, $attrs) {
 	
-	$scope.fullscreen = false;
 	$scope.names=['', '' ,'' ];
 	$scope.active = 0;
-	
 	$scope.detail1 = function () { 
 		$scope.htmlname="detail.html";
 		$scope.rowCollection = [

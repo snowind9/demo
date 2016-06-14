@@ -18,154 +18,157 @@
 	</div>
 </div>
 
-<div id ="parent" >
-<div id = "top" class="top-boxes" style="height: 50%; min-height: 30px">	
-	<div heightReset class='col-lg-12 col-md-12 col-sm-12 subwin' ng-controller ="panelController" name="w001"  style="height:100%">
-		<div class=" panel panel-default small " ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]"   style="height:100%">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				  <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
-				</ul>
-				<ul class="list-inline panel-actions">
-					<li>
-						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
-					</li>
-					<li>
-						<div class="btn-group" uib-dropdown is-open="status.isopen">
-						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
-						    <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
-						    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
-						    <li><a ng-click="changeMenu('2')">保有明細</a></li>
-						    <li><a ng-click="changeMenu('3')">SBS</a></li>
-						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
-						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
-						    <li><a ui-sref='.detail2'>取引履歴</a></li>
-						    <li><a ui-sref='.detail2'>NiSA</a></li>
-						    <li><a ui-sref='.detail2'>FATCA</a></li>
-						    <li><a ui-sref='.detail2'>AML</a></li>
-						</ul>
-						</div>
-					</li>
-				</ul>
+<div id ="parent" autoheight>
+
+	<div  id = "top" class="top-boxes" style="height: 50%; min-height: 30px" >	
+		<div class='col-lg-12 col-md-12 col-sm-12 subwin' ng-controller ="panelController" name="w001"  style="height:100%">
+			<div class=" panel panel-default small " ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]"  style="height:100%">
+				<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
+					<ul class="nav nav-tabs ">
+					  <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
+					  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
+					  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
+					</ul>
+					<ul class="list-inline panel-actions">
+						<li>
+							<a fullscreen id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
+						</li>
+						<li>
+							<div class="btn-group" uib-dropdown is-open="status.isopen">
+							<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
+							    <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
+							    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
+							    <li><a ng-click="changeMenu('2')">保有明細</a></li>
+							    <li><a ng-click="changeMenu('3')">SBS</a></li>
+							    <li><a ui-sref='.detail2'>登録金融機関</a></li>
+							    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
+							    <li><a ui-sref='.detail2'>取引履歴</a></li>
+							    <li><a ui-sref='.detail2'>NiSA</a></li>
+							    <li><a ui-sref='.detail2'>FATCA</a></li>
+							    <li><a ui-sref='.detail2'>AML</a></li>
+							</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-12"  ng-include=htmlname  style="height: {{innerTopHeight}} ; overflow-y: auto;"></div>
 			</div>
-			<div class="col-sm-12"  ng-include=htmlname  style="height: 59%; overflow-y: auto;"></div>
 		</div>
 	</div>
-</div>
-<div resizer="h" parent="parent" partone="top" parttwo="bottom" class="resizer"><span></span><div id="width-readout" class="width-readout">912px</div></div>
-<div id = "bottom" class="top-boxes" style="height: 50%">
-	<div id = "bottom-left"  class='box col-lg-4  col-md-4 subwin' ng-controller ="panelController" name="w002">
-		<div class=" panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:100%">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				<li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
-				</ul>
-				<ul class="list-inline panel-actions">
-					<li>
-						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
-					</li>
-					<li>
-						<div class="btn-group" uib-dropdown is-open="status.isopen">
-						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
-						     <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
-						    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
-						    <li><a ng-click="changeMenu('2')">保有明細</a></li>
-						    <li><a ng-click="changeMenu('3')">SBS</a></li>
-						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
-						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
-						    <li><a ui-sref='.detail2'>取引履歴</a></li>
-						    <li><a ui-sref='.detail2'>NiSA</a></li>
-						    <li><a ui-sref='.detail2'>FATCA</a></li>
-						    <li><a ui-sref='.detail2'>AML</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						</ul>
-						</div>
-					</li>
-				</ul>
+	
+	<div resizer="h" parent="parent" partone="top" parttwo="bottom" class="resizer"><span></span><div id="width-readout" class="width-readout">912px</div></div>
+	
+	<div id = "bottom" class="top-boxes" style="height: 50%">
+		<div id = "bottom-left"  class='box col-lg-4  col-md-4 subwin' ng-controller ="panelController" name="w002">
+			<div class=" panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:100%">
+				<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
+					<ul class="nav nav-tabs ">
+					<li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
+					  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
+					  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
+					</ul>
+					<ul class="list-inline panel-actions">
+						<li>
+							<a fullscreen id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
+						</li>
+						<li>
+							<div class="btn-group" uib-dropdown is-open="status.isopen">
+							<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
+							     <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
+							    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
+							    <li><a ng-click="changeMenu('2')">保有明細</a></li>
+							    <li><a ng-click="changeMenu('3')">SBS</a></li>
+							    <li><a ui-sref='.detail2'>登録金融機関</a></li>
+							    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
+							    <li><a ui-sref='.detail2'>取引履歴</a></li>
+							    <li><a ui-sref='.detail2'>NiSA</a></li>
+							    <li><a ui-sref='.detail2'>FATCA</a></li>
+							    <li><a ui-sref='.detail2'>AML</a></li>
+							    <li role="separator" class="divider"></li>
+							    <li><a href="#">Separated link</a></li>
+							</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-12"  ng-include=htmlname  style="height: {{innerbottomHeight}}; overflow-y: auto;"></div>
 			</div>
-			<div class="col-sm-12"  ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
+		</div>
+		<div resizer="v" parent="bottom" partone="bottom-left" parttwo="bottom-mid" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
+		<div id = "bottom-mid" class='box col-lg-4 col-md-4 subwin' ng-controller ="panelController" name="w003">
+			<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:100%">
+				<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
+					<ul class="nav nav-tabs ">
+					 <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
+					  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
+					  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
+					</ul>
+					<ul class="list-inline panel-actions">
+						<li>
+							<a fullscreen id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
+						</li>
+						<li>
+							<div class="btn-group" uib-dropdown is-open="status.isopen">
+							<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
+							     <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
+							    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
+							    <li><a ng-click="changeMenu('2')">保有明細</a></li>
+							    <li><a ng-click="changeMenu('3')">SBS</a></li>
+							    <li><a ui-sref='.detail2'>登録金融機関</a></li>
+							    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
+							    <li><a ui-sref='.detail2'>取引履歴</a></li>
+							    <li><a ui-sref='.detail2'>NiSA</a></li>
+							    <li><a ui-sref='.detail2'>FATCA</a></li>
+							    <li><a ui-sref='.detail2'>AML</a></li>
+							    <li role="separator" class="divider"></li>
+							    <li><a href="#">Separated link</a></li>
+							</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-12" ng-include=htmlname  style="height: {{innerbottomHeight}}; overflow-y: auto;"></div>
+			</div>
+		</div>
+		<div resizer="v" parent="bottom" partone="bottom-mid" parttwo="bottom-right" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
+		<div id = "bottom-right" class='box col-lg-4 col-md-4 subwin' ng-controller ="panelController" name="w004">
+			<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:100%">
+				<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
+					<ul class="nav nav-tabs ">
+					  <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
+					  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
+					  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
+					</ul>
+					<ul class="list-inline panel-actions">
+						<li>
+							<a fullscreen id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
+						</li>
+						<li>
+							<div class="btn-group" uib-dropdown is-open="status.isopen">
+							<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
+							<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
+							    <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
+							    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
+							    <li><a ng-click="changeMenu('2')">保有明細</a></li>
+							    <li><a ng-click="changeMenu('3')">SBS</a></li>
+							    <li><a ui-sref='.detail2'>登録金融機関</a></li>
+							    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
+							    <li><a ui-sref='.detail2'>取引履歴</a></li>
+							    <li><a ui-sref='.detail2'>NiSA</a></li>
+							    <li><a ui-sref='.detail2'>FATCA</a></li>
+							    <li><a ui-sref='.detail2'>AML</a></li>
+							    <li role="separator" class="divider"></li>
+							    <li><a href="#">Separated link</a></li>
+							</ul>
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="col-sm-12"  ng-include=htmlname  style="height: {{innerbottomHeight}}; overflow-y: auto;"></div>
+			</div>
 		</div>
 	</div>
-	<div resizer="v" parent="bottom" partone="bottom-left" parttwo="bottom-mid" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
-	<div id = "bottom-mid" class='box col-lg-4 col-md-4 subwin' ng-controller ="panelController" name="w003">
-		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:100%">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				 <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
-				</ul>
-				<ul class="list-inline panel-actions">
-					<li>
-						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
-					</li>
-					<li>
-						<div class="btn-group" uib-dropdown is-open="status.isopen">
-						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
-						     <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
-						    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
-						    <li><a ng-click="changeMenu('2')">保有明細</a></li>
-						    <li><a ng-click="changeMenu('3')">SBS</a></li>
-						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
-						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
-						    <li><a ui-sref='.detail2'>取引履歴</a></li>
-						    <li><a ui-sref='.detail2'>NiSA</a></li>
-						    <li><a ui-sref='.detail2'>FATCA</a></li>
-						    <li><a ui-sref='.detail2'>AML</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-12" ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
-		</div>
-	</div>
-	<div resizer="v" parent="bottom" partone="bottom-mid" parttwo="bottom-right" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
-	<div id = "bottom-right" class='box col-lg-4 col-md-4 subwin' ng-controller ="panelController" name="w004">
-		<div class="panel panel-default small" ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]" style="height:100%">
-			<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
-				<ul class="nav nav-tabs ">
-				  <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
-				  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
-				  <li role="presentation" ng-class="{2: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[2]]" ng-click="tabclick(2)">{{names[2]}}</a></li>
-				</ul>
-				<ul class="list-inline panel-actions">
-					<li>
-						<a ng-click="fullscreen =!fullscreen" id="panel-fullscreen" role="button"	title="Toggle fullscreen"><i class = "glyphicon" ng-class="{false: 'glyphicon-resize-full', true: ' glyphicon-resize-small'}[fullscreen]"></i></a>
-					</li>
-					<li>
-						<div class="btn-group" uib-dropdown is-open="status.isopen">
-						<a href="#" id="panel-menu" role="button" uib-dropdown-toggle ><i class="glyphicon glyphicon-list"></i></a>
-						<ul class="dropdown-menu dropdown-menu-right" aria-labelledby="panel-menu" uib-dropdown-menu role="menu">
-						    <li><a ng-click="changeMenu('0')">顧客別手数料</a></li>
-						    <li><a ng-click="changeMenu('1')">顧客明細</a></li>
-						    <li><a ng-click="changeMenu('2')">保有明細</a></li>
-						    <li><a ng-click="changeMenu('3')">SBS</a></li>
-						    <li><a ui-sref='.detail2'>登録金融機関</a></li>
-						    <li><a ui-sref='.detail2'>コンタクト履歴</a></li>
-						    <li><a ui-sref='.detail2'>取引履歴</a></li>
-						    <li><a ui-sref='.detail2'>NiSA</a></li>
-						    <li><a ui-sref='.detail2'>FATCA</a></li>
-						    <li><a ui-sref='.detail2'>AML</a></li>
-						    <li role="separator" class="divider"></li>
-						    <li><a href="#">Separated link</a></li>
-						</ul>
-						</div>
-					</li>
-				</ul>
-			</div>
-			<div class="col-sm-12"  ng-include=htmlname  style="height: 88%; overflow-y: auto;"></div>
-		</div>
-	</div>
-</div>
 </div>

@@ -1,24 +1,103 @@
 angular.module('snow_resizer', [])
 
-.directive('heightReset', function ($element) {
-    
-    return function ($scope, $element){
-    	console.log(1234);
-    	$scope.$watch
-        (
-            function () {
-                return $element.height();
-            },
-            function (newValue, oldValue) {
-                if (newValue != oldValue) {
-                    // Do something ...
-                    console.log(newValue);
-                }
-            }
-        );
-      }
+.directive('autoheight', function($document, $window) {
+	return function($scope, $element, $attrs) {
+		var h = $element.prop("clientHeight");
+		$scope.watchTopHeight= 0.5;
+		$scope.watchBottomHeight= 0.5;
+        $scope.innerTopHeight = (0.5 * h -38) / (0.5 * h) * 100 + "%"
+        $scope.innerbottomHeight = (0.5 * h -38) / (0.5 * h) * 100 + "%"
+        $scope.autoInnerHieght = false;
+        $scope.$on('onfullscreen', function (event, args){
+        	$scope.autoInnerHieght = args;
+        	$scope.$digest();
+        });
+        	
+        
+        $scope.$watch
+	    (
+	        function () {
+	            return  $scope.autoInnerHieght;
+	        },
+	        function (newValue, oldValue) {
+//	        	console.log(newValue);
+	            if (newValue != oldValue) {
+		        	h = $element.prop("clientHeight");
+	           		 console.log($element.prop("clientHeight"));
+	            	if (newValue) {
+	            		$scope.innerTopHeight = "88%"
+	            		$scope.innerbottomHeight =  "88%"
+	            	} else {
+	            		$scope.innerTopHeight = (h * $scope.watchTopHeight -38) / (h * $scope.watchTopHeight) * 100 + "%"
+	            		$scope.innerbottomHeight = (h * $scope.watchBottomHeight -38) / (h * $scope.watchBottomHeight) * 100 + "%"
+	            	}
+	            }
+	        }
+	    );
+        
+		$scope.$watch
+	    (
+	        function () {
+	            return  $scope.watchTopHeight;
+	        },
+	        function (newValue, oldValue) {
+	            if (newValue != oldValue) {
+
+           		 console.log($scope.watchTopHeight);
+           		 console.log($element.prop("clientHeight"));
+	            	h = $element.prop("clientHeight");
+	                $scope.innerTopHeight = (newValue * h -38) / (newValue * h) * 100 + "%"
+	            }
+	        }
+	    );
+		
+		$scope.$watch
+	    (
+	        function () {
+	            return  $scope.watchBottomHeight;
+	        },
+	        function (newValue, oldValue) {
+	            if (newValue != oldValue) {
+
+           		 console.log($scope.watchBottomHeight);
+		        	 h = $element.prop("clientHeight");
+	            	 $scope.innerbottomHeight = (newValue * h -38) / (newValue * h) * 100 + "%"
+	            }
+	        }
+	    );
+		
+		$scope.$watch
+	    (
+	        function () {
+	            return  $scope.fullHeight;
+	        },
+	        function (newValue, oldValue) {
+	            if (newValue != oldValue) {
+	            	 if (newValue) {
+	            		 $scope.innerTopHeight = (newValue * $scope.watchTopHeight -38) / (newValue * $scope.watchTopHeight) * 100 + "%"
+		            	 $scope.innerbottomHeight = (newValue * $scope.watchBottomHeight -38) / (newValue * $scope.watchBottomHeight) * 100 + "%"
+	            	 }
+	            }
+	        }
+	    );
+	};
 })
 
+.directive('fullscreen', function($document, $window) {
+	
+	return {
+		restrict: "EA",
+		scope: false,
+		link : function($scope, $element) {
+			$scope.fullscreen = false;
+			$element.on('click', function(event) {
+				$scope.fullscreen = !$scope.fullscreen;
+				$scope.$digest();
+				$scope.$emit('onfullscreen',$scope.fullscreen);
+			})
+		}
+	};
+})
 
 .directive('resizer', function($document, $window) {
 
@@ -46,8 +125,6 @@ angular.module('snow_resizer', [])
 			var origianlTopHeight = topEl.prop("offsetHeight");
 			
 			var newParentHeight = oldParentHeight;
-	        
-	        
 		} else if ($attrs.resizer == 'v') {
 			var allWidth;
 			
@@ -67,15 +144,27 @@ angular.module('snow_resizer', [])
 		}
 
 		angular.element($window).bind('resize', function(){
-	         var height = $window.innerHeight;
 	         
-	         parentWidht = $window.innerWidth; //? parent width = window.width,
-	          
-	         newParentHeight = oldParentHeight/oldWindowHeight * height;
+			if ($attrs.resizer == 'v') {
+				parentWidht = $window.innerWidth; //? parent width = window.width,
+			}
+	         // newParentHeight = oldParentHeight/oldWindowHeight * height; 
+	         if ($attrs.resizer == 'h') {
+	        	 var height = $window.innerHeight;
+	        	 var top = parentEl.prop("offsetTop")
+	        	 newParentHeight = height - parentEl.prop("offsetTop"); 
+		         if (newParentHeight) {
+		        	 parentEl.css({
+		 				height: newParentHeight + 'px'
+		 			 });
+		 			 $scope.fullHeight = newParentHeight;
+
+//		 			 console.log(height);
+//		 			 console.log($scope.fullHeight);
+		 			 $scope.$digest();
+		         }
+	         }
 	         
-	         parentEl.css({
-				height: newParentHeight + 'px'
-			 });
         });
 		
 		
@@ -173,6 +262,10 @@ angular.module('snow_resizer', [])
 			bottomEl.css({
 				height: (1-rate) * 100 + '%'
 			});
+			
+			$scope.watchTopHeight = rate ;
+			$scope.watchBottomHeight = (1-rate);
+			$scope.$digest();
 		}
 
 		function mouseup() {
