@@ -5,8 +5,17 @@ angular.module('snow_resizer', [])
 		var h = $element.prop("clientHeight");
 		$scope.watchTopHeight= 0.5;
 		$scope.watchBottomHeight= 0.5;
-        $scope.innerTopHeight = (0.5 * h -38) / (0.5 * h) * 100 + "%"
-        $scope.innerbottomHeight = (0.5 * h -38) / (0.5 * h) * 100 + "%"
+        
+        $scope.innerTopStyle = {
+        	"height" :  (0.5 * h -38) / (0.5 * h) * 100 + "%",
+        	"overflow-y" : "auto"
+        }
+        
+        $scope.innerBottomStyle = {
+            	"height" :  (0.5 * h -38) / (0.5 * h) * 100 + "%",
+            	"overflow-y" : "auto"
+            }
+        
         $scope.autoInnerHieght = false;
         $scope.$on('onfullscreen', function (event, args){
         	$scope.autoInnerHieght = args;
@@ -25,11 +34,11 @@ angular.module('snow_resizer', [])
 		        	h = $element.prop("clientHeight");
 	           		 console.log($element.prop("clientHeight"));
 	            	if (newValue) {
-	            		$scope.innerTopHeight = "88%"
-	            		$scope.innerbottomHeight =  "88%"
+	            		$scope.innerTopStyle.height = "88%"
+	            		$scope.innerBottomStyle.height =  "88%"
 	            	} else {
-	            		$scope.innerTopHeight = (h * $scope.watchTopHeight -38) / (h * $scope.watchTopHeight) * 100 + "%"
-	            		$scope.innerbottomHeight = (h * $scope.watchBottomHeight -38) / (h * $scope.watchBottomHeight) * 100 + "%"
+	            		$scope.innerTopStyle.height = (h * $scope.watchTopHeight -38) / (h * $scope.watchTopHeight) * 100 + "%"
+	            		$scope.innerBottomStyle.height = (h * $scope.watchBottomHeight -38) / (h * $scope.watchBottomHeight) * 100 + "%"
 	            	}
 	            }
 	        }
@@ -46,7 +55,7 @@ angular.module('snow_resizer', [])
            		 console.log($scope.watchTopHeight);
            		 console.log($element.prop("clientHeight"));
 	            	h = $element.prop("clientHeight");
-	                $scope.innerTopHeight = (newValue * h -38) / (newValue * h) * 100 + "%"
+	            	$scope.innerTopStyle.height = (newValue * h -38) / (newValue * h) * 100 + "%"
 	            }
 	        }
 	    );
@@ -61,7 +70,7 @@ angular.module('snow_resizer', [])
 
            		 console.log($scope.watchBottomHeight);
 		        	 h = $element.prop("clientHeight");
-	            	 $scope.innerbottomHeight = (newValue * h -38) / (newValue * h) * 100 + "%"
+		        	 $scope.innerBottomStyle.height = (newValue * h -38) / (newValue * h) * 100 + "%"
 	            }
 	        }
 	    );
@@ -74,8 +83,8 @@ angular.module('snow_resizer', [])
 	        function (newValue, oldValue) {
 	            if (newValue != oldValue) {
 	            	 if (newValue) {
-	            		 $scope.innerTopHeight = (newValue * $scope.watchTopHeight -38) / (newValue * $scope.watchTopHeight) * 100 + "%"
-		            	 $scope.innerbottomHeight = (newValue * $scope.watchBottomHeight -38) / (newValue * $scope.watchBottomHeight) * 100 + "%"
+	            		 $scope.innerTopStyle.height = (newValue * $scope.watchTopHeight -38) / (newValue * $scope.watchTopHeight) * 100 + "%"
+	            		 $scope.innerBottomStyle.height = (newValue * $scope.watchBottomHeight -38) / (newValue * $scope.watchBottomHeight) * 100 + "%"
 	            	 }
 	            }
 	        }

@@ -52,7 +52,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-sm-12"  ng-include=htmlname  style="height: {{innerTopHeight}} ; overflow-y: auto;"></div>
+				<div class="col-sm-12"  ng-include=htmlname   ng-style="innerTopStyle"></div>
 			</div>
 		</div>
 	</div>
@@ -130,7 +130,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-sm-12" ng-include=htmlname  style="height: {{innerbottomHeight}}; overflow-y: auto;"></div>
+				<div class="col-sm-12" ng-include=htmlname  ng-style="innerTopStyle" ></div>
 			</div>
 		</div>
 		<div resizer="v" parent="bottom" partone="bottom-mid" parttwo="bottom-right" class="editor-resizer" title="Drag to resize. Double-click to expand."></div>
