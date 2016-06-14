@@ -3521,9 +3521,7 @@ tbody.collapse.in {
   outline: 0;
 }
 .dropdown-menu {
-  position: absolute;
-  top: 100%;
-  left: 0;
+  position: fixed;
   z-index: 1000;
   display: none;
   float: left;
@@ -3595,9 +3593,15 @@ tbody.collapse.in {
   outline: 0;
 }
 .dropdown-menu-right {
-  right: 0;
-  left: auto;
+  top: 30%;
+  left: 30%;
 }
+
+.dropdown-menu-right {
+/*   right: 0; */
+/*   left: auto; */
+}
+
 .dropdown-menu-left {
   right: auto;
   left: 0;

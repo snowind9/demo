@@ -1,4 +1,4 @@
-var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table','snow_resizer']);
+var dashboard = angular.module('home', ['ui.router', 'ngAnimate', 'ui.bootstrap', 'smart-table','snow_resizer','ui.bootstrap.contextMenu']);
 
 
 dashboard.config(function($stateProvider, $urlRouterProvider) {
@@ -57,6 +57,32 @@ function dashboardController($rootScope) {
 }
 
 dashboard.controller("panelController", function ($element, $scope, $http, $attrs) {
+	$scope.menuOptions = [
+	                      ['Buy', function () {
+	                      }],
+	                      null,
+	                      ['Sell', function () {
+	                      }, function () {
+	                      }],
+	                      null,
+	                      ['More...', [
+	                          ['Alert Cost', function () {
+	                              alert();
+	                          }],
+	                          ['Alert Player Gold', function () {
+	                              alert();
+	                          }]
+	                      ]],
+	                      null,
+	                      ['More...', [
+	     	                          ['Alert Cost', function () {
+	     	                              alert();
+	     	                          }],
+	     	                          ['Alert Player Gold', function () {
+	     	                              alert();
+	     	                          }]
+	     	                      ]]
+	                  ];
 	
 	$scope.names=['', '' ,'' ];
 	$scope.active = 0;
