@@ -121,7 +121,7 @@ dashboard.controller("panelController", function ($element, $scope, $http, $attr
 	                          }]
 	                      ]],
 	                      ['顧客別手数料',  function () {
-                              alert();
+	                    	  $scope.changeMenu('0')
                           }],
 	                      ['NISA',  function () {
                               alert();
@@ -131,12 +131,12 @@ dashboard.controller("panelController", function ($element, $scope, $http, $attr
 	                              alert();
 	                          }],
 	                          ['資料発送入力', function () {
-	                              alert();
+	                        	  $scope.changeMenu('2')
 	                          }]
 	                      ]],
 	                      ['コンタクト履歴', [
 	                          ['コンタクト入力', function () {
-	                              alert();
+	                        	  $scope.changeMenu('4')
 	                          }],
 	                          ['コンタクト履歴', function () {
 	                              alert();
@@ -258,6 +258,10 @@ dashboard.controller("panelController", function ($element, $scope, $http, $attr
 		$scope.htmlname="customerInfo.html";
 	};
 	
+	$scope.detail5 = function () { 
+		$scope.htmlname="contactInput.html";
+	}
+	
 	$scope.blank = function () { 
 		$scope.htmlname="";
 	};
@@ -277,8 +281,9 @@ dashboard.controller("panelController", function ($element, $scope, $http, $attr
 	
 	var menuListNames = [{name:'顧客別手数料', func:$scope.detail1},
 	                     {name:'顧客明細', func:$scope.detail2},
-	                     {name:'保有明細', func:$scope.detail3},
-	                     {name:'SBS', func:$scope.detail4}
+	                     {name:'資料発送入力', func:$scope.detail3},
+	                     {name:'基本情報', func:$scope.detail4},
+	                     {name:'コンタクト入力', func:$scope.detail5}
 	                     ];
 	
 	$scope.changeMenu = function (index){
@@ -287,14 +292,16 @@ dashboard.controller("panelController", function ($element, $scope, $http, $attr
 		$scope.activityFuncs[$scope.active] = menuListNames[index].func;
 	}
 	
+	
+	// default 
 	if ($attrs.name == "w001") {
-		$scope.changeMenu(0);
+		$scope.changeMenu(3);
 	}
 	if ($attrs.name == "w002") {
 		$scope.changeMenu(2);
 	}
 	if ($attrs.name == "w003") {
-		$scope.changeMenu(3);
+		$scope.changeMenu(0);
 	}
 	if ($attrs.name == "w004") {
 		$scope.changeMenu(1);

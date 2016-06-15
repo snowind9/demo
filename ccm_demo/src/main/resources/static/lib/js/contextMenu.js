@@ -131,10 +131,8 @@ angular.module('ui.bootstrap.contextMenu', [])
             var winWidth = event.view.innerWidth;
             var rightPadding = 5;
             if (leftCoordinate > menuWidth && winWidth - leftCoordinate - rightPadding < menuWidth) {
-                leftCoordinate = winWidth - menuWidth * (1 + level) - rightPadding;
-                console.log(1);
+                leftCoordinate = winWidth - menuWidth - rightPadding - 160 * level;
             } else if(winWidth - leftCoordinate < menuWidth) {
-            	console.log(2);
                 var reduceThreshold = 5;
                 if(leftCoordinate < reduceThreshold + rightPadding) {
                     reduceThreshold = leftCoordinate + rightPadding;
@@ -184,7 +182,6 @@ angular.module('ui.bootstrap.contextMenu', [])
                     } else {
                         $(event.currentTarget).removeClass('context');
                         removeContextMenus();
-
                         if (angular.isFunction(item[1])) {
                             item[1].call($scope, $scope, event, model, text)
                         } else {
@@ -198,6 +195,8 @@ angular.module('ui.bootstrap.contextMenu', [])
                 $scope.$apply(function () {
                     if (nestedMenu) {
                         openNestedMenu($event);
+                    }else {
+                    	removeContextMenus(level + 1);
                     }
                 });
             });
