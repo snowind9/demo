@@ -58,30 +58,101 @@ function dashboardController($rootScope) {
 
 dashboard.controller("panelController", function ($element, $scope, $http, $attrs) {
 	$scope.menuOptions = [
-	                      ['Buy', function () {
+	                      ['基本情報', function () {
+	                    	  $scope.detail4();
 	                      }],
-	                      null,
-	                      ['Sell', function () {
-	                      }, function () {
+	                      ['保有明細', [
+	     	                          ['投資信託', function () {
+	     	                              alert();
+	     	                          }],
+	     	                          ['株式', function () {
+	     	                              alert();
+	     	                          }],
+	     	                          ['保有明細_毎月20日時点の投信残高', function () {
+	     	                              alert();
+	     	                          }]
+	     	                      ]],
+	                      ['顧客明細', function () {
+	                    	  $scope.detail1();
 	                      }],
-	                      null,
-	                      ['More...', [
-	                          ['Alert Cost', function () {
+	                      ['取引履歴', [
+	                          ['株式注文履歴', function () {
 	                              alert();
 	                          }],
-	                          ['Alert Player Gold', function () {
+	                          ['取引履歴(GFAS)', function () {
+	                              alert();
+	                          }],
+	                          ['取引履歴(SONAR)', function () {
+	                              alert();
+	                          }],
+	                          ['出金請求履歴', function () {
+	                              alert();
+	                          }],
+	                          ['損益通算', function () {
+	                              alert();
+	                          }],
+	                          ['投信注文履歴', function () {
+	                              alert();
+	                          }],
+	                          ['投信分配金', function () {
+	                              alert();
+	                          }],
+	                          ['入出金履歴', function () {
+	                              alert();
+	                          }],
+	                          ['入出庫履歴', function () {
 	                              alert();
 	                          }]
 	                      ]],
-	                      null,
-	                      ['More...', [
-	     	                          ['Alert Cost', function () {
-	     	                              alert();
-	     	                          }],
-	     	                          ['Alert Player Gold', function () {
-	     	                              alert();
-	     	                          }]
-	     	                      ]]
+	                      ['登録金融機関', [
+ 	                          ['SBS引落金融機関', function () {
+ 	                              alert();
+ 	                          }],
+ 	                          ['出金先金融機関', function () {
+ 	                              alert();
+ 	                          }]
+ 	                      ]],
+	                      ['SBS', [
+	                          ['SBS登録状況', function () {
+	                              alert();
+	                          }],
+	                          ['SBS登録履歴', function () {
+	                              alert();
+	                          }]
+	                      ]],
+	                      ['顧客別手数料',  function () {
+                              alert();
+                          }],
+	                      ['NISA',  function () {
+                              alert();
+                          }],
+	                      ['資料請求', [
+	                          ['資料請求履歴', function () {
+	                              alert();
+	                          }],
+	                          ['資料発送入力', function () {
+	                              alert();
+	                          }]
+	                      ]],
+	                      ['コンタクト履歴', [
+	                          ['コンタクト入力', function () {
+	                              alert();
+	                          }],
+	                          ['コンタクト履歴', function () {
+	                              alert();
+	                          }],
+	                          ['例外事項表示', function () {
+	                              alert();
+	                          }]
+	                      ]],
+	                      ['分配金', [
+	                          ['分配金自動振込金融機関', function () {
+	                              alert();
+	                          }],
+	                          ['分配金振込設定銘柄の有', function () {
+	                              alert();
+	                          }]
+	                      ]]
 	                  ];
 	
 	$scope.names=['', '' ,'' ];
