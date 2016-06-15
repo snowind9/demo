@@ -1,7 +1,7 @@
 <div style="height:42px"  ng-controller="customerInfoCtrl">
-	<div class='col-lg-12'>
-		<div class="h4 col-lg-5 col-md-5 col-sm-5"> <span ng-click="changeColor()">123456 山田太郎(やまだたろう)</span>  <span ng-click="reset()" ng-show="class8+class9+class10==3">口座閉鎖  Y客</span></div>
-		<table class="h4 col-lg-7 col-md-7 col-sm-7">
+	<div class='col-sx-12'>
+		<span class="h4 col-lg-5 col-md-5 col-sm-5 col-xs-5"> <span ng-click="changeColor()">123456 山田太郎(やまだたろう)</span><span>  口座閉鎖  Y客</span></span>
+		<table class="h4 col-lg-7 col-md-7 col-sm-7 col-xs-7">
 			<tr>
 				<td><span ng-click = "tipOpen1()" class="glyphicon tip1" ng-class="{0: 'glyphicon-ok-sign', 1: 'glyphicon-remove-sign', 2: 'glyphicon-minus-sign'}[class1]" tooltip-placement="bottom" uib-tooltip="{{tipNames1[class1]}}"></span></td>
 				<td><span ng-click = "tipOpen2()" class="glyphicon glyphicon-warning-sign " ng-class="{0: 'tip2', 1: 'tip0'}[class2]" tooltip-placement="bottom" uib-tooltip="{{tipNames2[class2]}}"></span></td>
@@ -18,12 +18,12 @@
 	</div>
 </div>
 
-<div id ="parent" autoheight>
+<div id ="parent" autoheight style="">
 
-	<div  id = "top" class="top-boxes" style="height: 50%; min-height: 30px" >	
-		<div class='col-lg-12 col-md-12 col-sm-12 subwin' ng-controller ="panelController" name="w001"  style="height:100%">
+	<div  id = "top" class="top-boxes " style="height: 50%; min-height: 30px" >	
+		<div class='col-lg-12 col-md-12 col-sm-12 col-xs-12 subwin' ng-controller ="panelController" name="w001"  style="height:100%">
 			<div class=" panel panel-default small " ng-class="{true: 'panel-fullscreen', false: ''}[fullscreen]"  style="height:100%">
-				<div class="col-sm-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
+				<div class="col-xs-12" ng-class="{true: 'cgcolor', false: 'cgcolor-default'}[color]">
 					<ul class="nav nav-tabs ">
 					  <li role="presentation" ng-class="{0: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[0]]" ng-click="tabclick(0)">{{names[0]}}</a></li>
 					  <li role="presentation" ng-class="{1: 'active'}[active]"><a ng-class="{'' : 'glyphicon glyphicon-tags'}[names[1]]" ng-click="tabclick(1)">{{names[1]}}</a></li>
@@ -38,7 +38,7 @@
 						</li>
 					</ul>
 				</div>
-				<div class="col-sm-12"  ng-include=htmlname   ng-style="innerTopStyle"></div>
+				<div class="col-xs-12"  ng-include=htmlname   ng-style="innerTopStyle"></div>
 			</div>
 		</div>
 	</div>

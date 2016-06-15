@@ -121,7 +121,7 @@ angular.module('snow_resizer', [])
 		if ($attrs.resizer == 'h') {
 			var selfOffsetTop = $element.prop("offsetTop");
 			var topDIVHeight = selfOffsetTop - topEl.prop("offsetHeight");
-			
+			console.log(topDIVHeight);
 			parentEl.css({
 				height: $window.innerHeight - topDIVHeight + 'px'
 		    });

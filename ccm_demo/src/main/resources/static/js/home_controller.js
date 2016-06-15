@@ -9,7 +9,7 @@ dashboard.config(function($stateProvider, $urlRouterProvider) {
 		controller: ListController,
 		templateUrl : '/search.html'
 	}).state('dashboard', {
-		url : '/dashboard',
+		url : '/dashboard/:account',
 		controller: dashboardController,
 		templateUrl : '/dashboard.html'
 	}).state('dashboard2', {
@@ -43,7 +43,7 @@ function ListController($rootScope , $state, $scope, $filter) {
 	$scope.openDashboard = function openDashboard(row) {
         var index = $scope.rowCollection.indexOf(row);
         if (index !== -1) {
-        	$state.go('dashboard', index);
+        	$state.go('dashboard',$scope.rowCollection[index]);
         }
     }
 }
@@ -56,10 +56,10 @@ function dashboardController($rootScope) {
 	
 }
 
-dashboard.controller("panelController", function ($element, $scope, $http, $attrs) {
+dashboard.controller("panelController", function ($element, $scope, $http, $attrs,$stateParams) {
 	$scope.menuOptions = [
 	                      ['基本情報', function () {
-	                    	  $scope.detail4();
+	                    	  $scope.changeMenu('3');
 	                      }],
 	                      ['保有明細', [
 	     	                          ['投資信託', function () {
@@ -255,6 +255,7 @@ dashboard.controller("panelController", function ($element, $scope, $http, $attr
 	};
 	
 	$scope.detail4 = function () { 
+		$scope.account = $stateParams.account;
 		$scope.htmlname="customerInfo.html";
 	};
 	
