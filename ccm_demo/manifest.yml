@@ -1,0 +1,7 @@
+---
+applications:
+- name: CallCenter
+  memory: 512M
+  instances: 1
+  host: CCM-${random-word}
+
